@@ -1,0 +1,47 @@
+.javne-ustanove-container{
+    width: 100%;
+    height: 70vh;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('https://gyazo.com/efc8b8b6ac5ff321fbcd1c35822d662d.png'); 
+    background-color: #cccccc; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    color: white;
+    padding: 10px;
+}
+.inner-container{
+    width: 70%;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.single-ustanova{
+    width: 32%;
+    height: 12vh;
+    background-color: #2e4868;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 8px;
+}
+.single-ustanova img{
+    width: 60px;
+    margin-right: 12px;
+}
+.text-container{
+    width: 90%;
+}
+.titles-container{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

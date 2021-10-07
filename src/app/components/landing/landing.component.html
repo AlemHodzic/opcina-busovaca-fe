@@ -1,0 +1,42 @@
+<div class="carousel-container">
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let item of headerPosts">
+      <div class="slide">
+        <div class="inner-content-container">
+          <div class="inner-box">
+              <h3>{{item.subTitle}}</h3>
+              <h1>{{item.title}}</h1>
+              <p>Saznaj vise</p>
+          </div>
+        </div>
+        <div class="img-container">
+          <img src="{{item.selectedFile}}" alt="">
+        </div>
+      
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+
+<div class="news-titles-container">
+  <div class="inner-titles-container">
+    <h2>Izdvojeni članci</h2>
+    <h3>Sve novosti</h3>
+  </div>
+  
+</div>
+  <div class="news-container">
+    	<div class="inner-news-container">
+        <div class="news-box" *ngFor="let newsItem of news" (click)="test()">
+          <img src="{{newsItem.selectedFile}}" alt="">
+          <div class="inner-news-box">
+            <p class="newsSubTitle">{{newsItem.subTitle}}</p>
+            <h3>{{newsItem.title}}</h3>
+            <p class="newsDate">Datum objave: 29.03.2021</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+<app-javne-ustanove></app-javne-ustanove>
+<app-counter></app-counter>

@@ -14,7 +14,7 @@
               </button>
             
            <div class="navbar-headings">
-            <h4 (click)="openNav()">Sidebar open</h4>
+            <h4 (click)="openNav()"><i class="fa fa-bars"></i> Izbornik</h4>
             <h4 >Općinski načelnik</h4>
             <h4 >Općinsko vijeće</h4>
             <h4 >Mjesne zajednice</h4>
@@ -28,7 +28,23 @@
 </div>
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a href="#">About</a>
+    <a (click)="toggle[1] = !toggle[1]">Aktuelnosti <i *ngIf="!toggle[1]" class="fa fa-angle-down"></i> <i *ngIf="toggle[1]" class="fa fa-angle-up"></i></a>
+        <div class="under_menu" [hidden]="!toggle[1]">     
+             <a>Item 1</a>
+        </div>
+
+    <a (click)="toggle[2] = !toggle[2]">Dokumenti <i *ngIf="!toggle[2]" class="fa fa-angle-down"></i> <i *ngIf="toggle[2]" class="fa fa-angle-up"></i></a>
+        <div  class="under_menu" [hidden]="!toggle[2]">     
+             <a>Strategije</a>
+             <a>Budžeti</a>
+             <a>Zahtjevi</a>
+             
+        </div>  
+    
+       
+  
+    
+
     <a href="#">Services</a>
     <a href="#">Clients</a>
     <a href="#">Contact</a>

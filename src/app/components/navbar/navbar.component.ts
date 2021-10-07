@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document, private router: Router) {}
   test: number = window.innerHeight/9.5;
-  
+  toggle = [];
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (document.body.scrollTop > this.test ||     
@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
   openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("mySidebar").style.width = "300px";
   }
   closeNav() {
     document.getElementById("mySidebar").style.width = "0";

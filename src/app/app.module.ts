@@ -18,7 +18,8 @@ import { CounterComponent } from './components/counter/counter.component';
 import { AnimatedDigitComponent } from './animated/animated-digit/animated-digit.component';
 import { FooterComponent } from './components/footer/footer.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     FormsModule,
     ToastrModule,
     CarouselModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatMenuModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

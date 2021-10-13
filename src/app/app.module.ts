@@ -20,6 +20,8 @@ import { FooterComponent } from './components/footer/footer.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
+import { SinglePostComponent } from './components/single-post/single-post.component';
+import { NacelnikPageComponent } from './components/nacelnik-page/nacelnik-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import {MatListModule} from '@angular/material/list';
     JavneUstanoveComponent,
     CounterComponent,
     AnimatedDigitComponent,
-    FooterComponent
+    FooterComponent,
+    SinglePostComponent,
+    NacelnikPageComponent
   ],
   imports: [
     BrowserModule,

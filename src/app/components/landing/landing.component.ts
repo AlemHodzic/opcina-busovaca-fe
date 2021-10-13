@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
@@ -18,34 +19,42 @@ export class LandingComponent implements OnInit {
     autoplay: true,
     autoplayTimeout: 5000,
     autoplaySpeed: 1000,
-    
+    responsiveRefreshRate: 10,
     responsive: {
       0: {
         items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
       }
     },
     nav: false
   }
-  constructor(private service: PostServiceService) { }
+  constructor(private service: PostServiceService, private router: Router ) { }
   allPosts: any[] = [];
   headerPosts: any[] = [];
   news: any[] = [];
   ngOnInit(): void {
     this.service.getPosts().subscribe(
       res => {
-        this.allPosts = res as [];
-        this.allPosts.reverse();
-        this.headerPosts = this.allPosts;
-        this.news = this.allPosts;
-        this.news.length = 3;
-        console.log(this.news)
+        this.news = res as [];
       }
-
     ); 
-  }
 
-  test(){
-    console.log("aaa")
-  }
+    this.service.getHeaderPosts().subscribe(
+      res=> {
+        this.headerPosts = res as [];
+      }
+    )
 
+  }
+  openArticle(id){
+    this.router.navigate(['/clanak', id])
+  }
 }

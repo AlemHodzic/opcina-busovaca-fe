@@ -14,13 +14,12 @@
     align-items: center;
     flex-direction: column;
     font-size: 18px;
-    letter-spacing: 10px;
     text-align: center;
 }
 .mid{
     padding: 15px;
 }
-animated-digit{
-    font-size: 45px;
+h1{
+    font-size: 30px;
     font-weight: bold;
 }

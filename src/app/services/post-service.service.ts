@@ -12,6 +12,10 @@ export class PostServiceService {
   getPosts(){
     return this.http.get(this.url)
   }
+  getHeaderPosts(){
+    return this.http.get(`${this.url}/novosti`)
+  }
+  
 
   getPost(id){
     return this.http.get(`${this.url}/${id}`)

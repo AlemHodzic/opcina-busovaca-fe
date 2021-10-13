@@ -5,13 +5,14 @@
     padding:0;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
-    user-select: none; 
+ 
 }
 html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: "Rubik", sans-serif;  
+    font-family: "Rubik", sans-serif; 
+    overflow-x: hidden; 
 } 
 :after,:before{
     -webkit-box-sizing:border-box;

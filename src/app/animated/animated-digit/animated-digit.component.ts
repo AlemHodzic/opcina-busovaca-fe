@@ -45,7 +45,7 @@ export class AnimatedDigitComponent implements AfterViewInit, OnChanges {
       currentSinValue += sinValueIncrement;
       currentValue += valueIncrement * Math.sin(currentSinValue) ** 2 * 2;
 
-      element.nativeElement.textContent = Math.abs(Math.floor(currentValue));
+      //element.nativeElement.textContent = Math.abs(Math.floor(currentValue));
 
       if (currentSinValue < Math.PI) {
         window.requestAnimationFrame(step);

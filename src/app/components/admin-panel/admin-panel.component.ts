@@ -45,7 +45,8 @@ export class AdminPanelComponent implements OnInit {
       subTitle: new FormControl(""),
       body:  new FormControl(""),
       tags:  new FormControl(""),
-      selectedFile:  new FormControl("")
+      selectedFile:  new FormControl(""),
+      isHeader: new FormControl("")
    });
   }
 
@@ -60,7 +61,11 @@ export class AdminPanelComponent implements OnInit {
 
   onClickSubmit(data) {
     data.selectedFile = this.uploadedImg; 
-    console.log(data);
+    if(data.isHeader){
+      data.isHeader = 1;
+    }else{
+      data.isHeader = 0;
+    }
     this.service.createPost(data)
  }
   

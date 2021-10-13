@@ -1,0 +1,50 @@
+<div class="main-container">
+    <div class="links-container">
+        <h2>Vezani linkovi:</h2>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+    </div>
+
+
+
+
+
+    <div class="content-container">
+        <div class="subTitle-container">
+            <h4>{{object.subTitle}}</h4>
+        </div>
+        <img src="{{object.selectedFile}}" alt="">
+        <div class="inner-content-text">
+            <h1>{{object.title}}</h1>
+            <p class="dateAdded">{{dateCreated}}</p>
+            <hr>
+            <p class="content">{{object.body}}</p>
+        </div>
+      
+    </div>
+
+
+
+
+
+    <div class="other-articles-container">
+        <h2>Aktuelni članci</h2>
+        <div class="inner-news-container">
+        
+            <div class="news-box" *ngFor="let newsItem of news" (click)="openArticle(newsItem._id)">
+              <img src="{{newsItem.selectedFile}}" alt="" >
+              <div class="inner-news-box">
+                <p class="newsSubTitle">{{newsItem.subTitle}}</p>
+                <h3>{{newsItem.title}}</h3>
+                <p class="newsDate">Datum objave: 29.03.2021</p>
+              </div>
+      
+            </div>
+        
+          
+        </div>
+    </div>
+</div>

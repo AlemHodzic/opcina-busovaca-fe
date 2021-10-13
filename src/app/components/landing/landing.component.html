@@ -1,5 +1,5 @@
 <div class="carousel-container">
-  <owl-carousel-o [options]="customOptions">
+  <owl-carousel-o id="carousel" [options]="customOptions">
     <ng-template carouselSlide *ngFor="let item of headerPosts">
       <div class="slide">
         <div class="inner-content-container">
@@ -27,14 +27,18 @@
 </div>
   <div class="news-container">
     	<div class="inner-news-container">
-        <div class="news-box" *ngFor="let newsItem of news" (click)="test()">
-          <img src="{{newsItem.selectedFile}}" alt="">
-          <div class="inner-news-box">
-            <p class="newsSubTitle">{{newsItem.subTitle}}</p>
-            <h3>{{newsItem.title}}</h3>
-            <p class="newsDate">Datum objave: 29.03.2021</p>
+        
+          <div class="news-box" *ngFor="let newsItem of news" (click)="openArticle(newsItem._id)">
+            <img src="{{newsItem.selectedFile}}" alt="" >
+            <div class="inner-news-box">
+              <p class="newsSubTitle">{{newsItem.subTitle}}</p>
+              <h3>{{newsItem.title}}</h3>
+              <p class="newsDate">Datum objave: 29.03.2021</p>
+            </div>
+    
           </div>
-        </div>
+      
+        
       </div>
   </div>
 

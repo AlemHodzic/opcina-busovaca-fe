@@ -24,7 +24,9 @@
                 <input type="text" value="" placeholder="Naslov" name="title" tabindex="1" formControlName="title"/>
                 <input type="text" value="" placeholder="Podnaslov" name="subTitle" tabindex="3" formControlName="subTitle"/>
                 <input type="file" value="" (change)="handleUpload($event)" placeholder="slika" name="selectedFile" tabindex="2" formControlName="selectedFile"/>
-                
+                <input type="checkbox" value="" placeholder="" formControlName="isHeader" name="isheader"/>
+                <label for="isheader"> Prikaži na naslovnoj</label>
+                <p>Napomena: odabirom znači da će ovaj artikal biti prikazan na naslovnoj stranici i potrebno je da je slika visokog kvaliteta i dimenzija približnim 1920x400 (u pixelima)</p>
                 <input type="text" value="" placeholder="Tagovi - odvoji zarezom (npr: biznis,sport,poljoprivreda)" name="tags" formControlName="tags"/>
                 <textarea placeholder="Glavni dio" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
                 <input type="submit" value="Dodaj" tabindex="6" />

@@ -15,7 +15,13 @@ export class PostServiceService {
   getHeaderPosts(){
     return this.http.get(`${this.url}/novosti`)
   }
-  
+  getPaginatedPosts(page){
+    //http://localhost:5000/posts/sveNovosti?page=-1&size=3
+    return this.http.get(`${this.url}/sveNovosti?page=${page}`)
+  }
+  searchByName(name){
+    return this.http.get(`${this.url}/clanak/${name}`)
+  }
 
   getPost(id){
     return this.http.get(`${this.url}/${id}`)

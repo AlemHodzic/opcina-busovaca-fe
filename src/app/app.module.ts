@@ -22,6 +22,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { NacelnikPageComponent } from './components/nacelnik-page/nacelnik-page.component';
+import { AktuelnostiComponent } from './components/aktuelnosti/aktuelnosti.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { NacelnikPageComponent } from './components/nacelnik-page/nacelnik-page.
     AnimatedDigitComponent,
     FooterComponent,
     SinglePostComponent,
-    NacelnikPageComponent
+    NacelnikPageComponent,
+    AktuelnostiComponent
   ],
   imports: [
     BrowserModule,

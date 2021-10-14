@@ -1,0 +1,63 @@
+<div class="main-container">
+    <div class="links-container">
+        <h2>Vezani linkovi:</h2>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+        <h3>Link 1</h3>
+    </div>
+
+
+
+
+
+    <div class="content-container">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Pretraga novosti.." name="search">
+            <button type="submit">Traži</button>
+          </form>
+      
+          <div class="filtered-content">
+              <div class="news-container">
+                  <div class="img-container">
+                      <img src="https://gyazo.com/c56b7381b506f398df16abcfc6cfde7b.png" alt="">
+                  </div>
+                  <div class="text-container">
+                      <h4>Podnaslov neki</h4>
+                      <h2>GLavni naslov ovde ide</h2>
+                      <p>29/04/2021</p>
+                  </div>
+              </div>
+          </div>
+          <div class="pagination-container">
+            <ul class="pagination">
+                <li><a href="#" class="prev">< Nazad </a></li>
+                <li><a href="#" class="next">Sljedeća ></a></li>
+              </ul>
+          </div>
+    </div>
+
+
+
+
+
+    <div class="other-articles-container">
+        <h2>Aktuelni članci</h2>
+        <div class="inner-news-container">
+        
+            <div class="news-box" *ngFor="let newsItem of news" href="/clanak/{{newsItem._id}}">
+              <img src="{{newsItem.selectedFile}}" alt="" >
+              <div class="inner-news-box">
+                <p class="newsSubTitle">{{newsItem.subTitle}}</p>
+                <h3>{{newsItem.title}}</h3>
+                <p class="newsDate">Datum objave: 29.03.2021</p>
+                <a href="/clanak/{{newsItem._id}}">Procitaj vise</a>
+              </div>
+      
+            </div>
+        
+          
+        </div>
+    </div>
+</div>

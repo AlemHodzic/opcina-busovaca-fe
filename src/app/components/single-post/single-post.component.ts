@@ -12,7 +12,6 @@ export class SinglePostComponent implements OnInit {
   constructor(private _Activatedroute:ActivatedRoute, private service: PostServiceService, private router: Router) { }
   id: any;
   object: any;
-  news: any[] = [];
   dateCreated: any;
   ngOnInit(): void {
     this._Activatedroute.paramMap.subscribe(params => { 
@@ -27,22 +26,10 @@ export class SinglePostComponent implements OnInit {
       this.dateCreated = this.dateCreated.split('T')[0]
     }
   );
-  this.service.getPosts().subscribe(
-    res => {
-      this.news = res as [];
-      
-    }
-  ); 
+
 
   }
 
-  openArticle(id){
-    console.log(id);
-    this.router.navigate(['/clanak', id])
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
- 
-  }
+
 
 }

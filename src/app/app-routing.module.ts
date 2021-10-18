@@ -13,7 +13,10 @@ const routes: Routes = [
   {path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard]},
   {path: 'clanak/:id', component: SinglePostComponent},
   {path: 'aktuelnosti', component: AktuelnostiComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'o-opcini', loadChildren:() => import('./pages/o-opcini/o-opcini.module')
+  .then(mod=> mod.OOpciniModule)
+}
 ];
 
 @NgModule({

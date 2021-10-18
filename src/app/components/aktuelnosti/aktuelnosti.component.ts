@@ -15,17 +15,12 @@ export class AktuelnostiComponent implements OnInit {
     searchBox: ''
   });
   warning: boolean = false;
-  news: any[] = [];
+
   page: number = 1;
   loaded: boolean = false;
   filteredNews: any[] = [];
   noResult: boolean = false;
   ngOnInit(): void {
-    this.service.getPosts().subscribe(
-      res => {
-        this.news = res as [];
-      }
-    ); 
     this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
         this.filteredNews = res as [];

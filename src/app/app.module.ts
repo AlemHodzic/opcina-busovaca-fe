@@ -25,6 +25,9 @@ import { NacelnikPageComponent } from './components/nacelnik-page/nacelnik-page.
 import { AktuelnostiComponent } from './components/aktuelnosti/aktuelnosti.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { SharedModule } from './shared-modules/shared/shared.module';
+
+
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import { environment } from 'src/environments/environment';
     FooterComponent,
     SinglePostComponent,
     NacelnikPageComponent,
-    AktuelnostiComponent
+    AktuelnostiComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,7 @@ import { environment } from 'src/environments/environment';
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
+    SharedModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],

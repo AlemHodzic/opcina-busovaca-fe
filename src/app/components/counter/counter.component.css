@@ -16,6 +16,9 @@
     font-size: 18px;
     text-align: center;
 }
+.top{
+    display: flex;
+}
 .mid{
     padding: 15px;
 }

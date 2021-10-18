@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { PostServiceService } from 'src/app/services/post-service.service';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class AdminPanelComponent implements OnInit {
     tags: [String],
     selectedFile: String,
   }
-  constructor(private service: PostServiceService, public dialog: MatDialog) {
+  constructor(private service: PostServiceService, public dialog: MatDialog, public auth: AngularFireAuth) {
 
    }
 
@@ -33,6 +34,9 @@ export class AdminPanelComponent implements OnInit {
         //console.log(this.posts);
       }
     );
+
+
+
     /*this.service.getPost("615056101c0f4007ea810b3d").subscribe(
       res => {
         console.log(res);

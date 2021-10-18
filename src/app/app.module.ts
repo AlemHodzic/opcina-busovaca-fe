@@ -23,6 +23,10 @@ import {MatListModule} from '@angular/material/list';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { NacelnikPageComponent } from './components/nacelnik-page/nacelnik-page.component';
 import { AktuelnostiComponent } from './components/aktuelnosti/aktuelnosti.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +54,8 @@ import { AktuelnostiComponent } from './components/aktuelnosti/aktuelnosti.compo
     CarouselModule,
     MatSidenavModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,12 +5,14 @@ import { OOpciniRoutingModule } from './o-opcini-routing.module';
 import { ONamaComponent } from './o-nama/o-nama.component';
 import { HistorijatComponent } from './historijat/historijat.component';
 import { SharedModule } from 'src/app/shared-modules/shared/shared.module';
+import { GeoDemoComponent } from './geo-demo/geo-demo.component';
 
 
 @NgModule({
   declarations: [
     ONamaComponent,
     HistorijatComponent,
+    GeoDemoComponent,
 
   ],
   imports: [

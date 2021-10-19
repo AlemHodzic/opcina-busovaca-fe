@@ -39,15 +39,19 @@ i{
     padding: 15px;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
 }
 
 .content-container p{
     width: 95%;
     text-align: justify;
-    font-size: 15px;
+    font-size: 16px;
 }
+.nacelnik-title{
+    margin-bottom: 20px;
+}
+
 .content-container img{
     max-width: 95%;
 }
@@ -97,18 +101,54 @@ i{
 .newsSubTitle{
     color: #af7f1e;
 }
+.imgs-container{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+    align-items: flex-end;
+    flex-direction: row;
+}
+.imgs-container img{
+    max-height: 220px;
+    margin-right: 15px;
+}
+
+table {
+    width: 95%;
+    border-right-color: #ffffff;
+    font-size: 16px;
+    /* /* border: 1px solid #343a40; */
+    border-collapse: collapse; 
+  }
+  
+  th, td {
+    /* border: 1px solid #343a40; */
+    padding: 16px 24px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #087f5b;
+    color: #fff;
+    width: 25%;
+  }
+
+  tbody tr:nth-child(odd){
+    background-color: #f8f9fa;
+  }
+
+  
+  tbody tr:nth-child(even){
+    background-color: #e9ecef;
+  }
+
+
 
 /*responsiveness*/
 
-@media only screen and (max-width: 850px) {
-    h2{
-        font-size: 18px;
-    }
-    h3{
-        font-size: 15px;
-    }
-}
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1100px) {
     .main-container{
         justify-content: center;
         align-items: center;
@@ -146,4 +186,48 @@ i{
         border-top: 1px solid rgb(187, 187, 187);
     }
   
+}
+@media only screen and (max-width: 850px) {
+    h2{
+        font-size: 18px;
+    }
+    h3{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .imgs-container img{
+        max-height: 200px;
+    }
+    .contact-info h4{
+        font-size: 14px;
+    }   
+}
+@media only screen and (max-width: 430px) {
+    .imgs-container img{
+        max-height: 160px;
+    }
+    h3{
+        font-size: 14px;
+    }
+    .contact-info h4{
+        font-size: 12px;
+    }   
+    .content-container{
+        width: 95%;
+    }
+}
+@media only screen and (max-width: 300px) {
+    .imgs-container img{
+        max-height: 140px;
+    }
+    h3{
+        font-size: 13px;
+    }
+    .contact-info h4{
+        font-size: 10px;
+    }
+    .content-container{
+        width: 99%;
+    }
 }

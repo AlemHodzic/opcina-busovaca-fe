@@ -21,7 +21,6 @@ export class SinglePostComponent implements OnInit {
   this.service.getPost(this.id).subscribe(
     res => {
       this.object = res;
-      console.log(this.object)
       this.dateCreated = this.object.createdAt;
       this.dateCreated = this.dateCreated.split('T')[0]
     }

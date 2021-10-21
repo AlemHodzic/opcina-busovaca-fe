@@ -31,7 +31,7 @@ export class AktuelnostiComponent implements OnInit {
   previousPage(){
     this.noResult = false;
     if(this.page <= 1){
-      console.log("vec je 1 pokusavate manje od 1")
+      console.log("error")
     }
     else{
       this.loaded = false;
@@ -54,7 +54,14 @@ export class AktuelnostiComponent implements OnInit {
     this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
         this.filteredNews = res as [];
-        this.loaded = true;
+        if(this.filteredNews.length == 0){
+          this.previousPage();
+          this.loaded = false;
+          alert("Nema rezultata.")
+        }else{
+          this.loaded = true;
+        }
+        
       }
     )
   }
@@ -71,7 +78,6 @@ export class AktuelnostiComponent implements OnInit {
         res=> {
           this.filteredNews = res as [];
           if(this.filteredNews.length == 0){
-            console.log("no results")
             this.noResult = true;
           }else{
             this.noResult = false;

@@ -45,3 +45,91 @@
     align-items: center;
     flex-direction: column;
 }
+
+@media only screen and (max-width: 1200px) {
+    .single-ustanova{
+        width: 44%;
+    }
+    .inner-container{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .single-ustanova{
+        width: 47%;
+    }
+
+    .single-ustanova img{
+        width: 50px;
+    }
+    .single-ustanova h4{
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .inner-container{
+        width: 90%;
+    }
+
+}
+@media only screen and (max-width: 680px) {
+    .single-ustanova{
+        width: 70%;
+        margin-bottom: 7px;
+    }
+    .javne-ustanove-container{
+        height: auto;
+    }
+    .titles-container h1{
+        font-size: 23px;
+    }
+    .titles-container h4{
+        font-size: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+    .single-ustanova{
+        width: 75%;
+    }
+    .single-ustanova h4{
+        font-size: 16px;
+    }
+    .single-ustanova p{
+        font-size: 14px;
+    }
+    .titles-container h1{
+        font-size: 21px;
+    }
+    .titles-container h4{
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width: 470px) {
+    .single-ustanova{
+        width: 85%;
+    }
+    .inner-container{
+        width: 95%;
+    }
+    .single-ustanova h4{
+        font-size: 14px;
+    }
+    .single-ustanova p{
+        font-size: 12px;
+    }
+    .titles-container h4{
+        font-size: 10px;
+    }
+    .titles-container{
+        padding: 5px;
+    }
+}
+@media only screen and (max-width: 370px) {
+
+    .titles-container h1{
+        font-size: 18px;
+    }
+}

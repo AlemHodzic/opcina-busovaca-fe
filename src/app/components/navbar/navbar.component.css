@@ -73,7 +73,10 @@
 }
 
 .navbar-headings {
+	width: 100%;
 	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 .navbar-headings a {
@@ -265,6 +268,9 @@
 	display: block;
 	transition: 0.3s;
   }
+  #mySidebar a{
+	  cursor: pointer;
+  }
   
   /* When you mouse over the navigation links, change their color */
   .sidebar a:hover {
@@ -304,37 +310,40 @@
 
 
 @media only screen and (max-width: 1400px) {
-	.navbar-headings h4{
+	.navbar-headings a{
 		font-size: 1rem;
 	}
 }
 @media only screen and (max-width: 1300px) {
-	.navbar-headings h4{
+	.navbar-headings a{
 		font-size: 0.85rem;
-		margin-left: 90px;
 	}
 
 		
 }
 
 @media only screen and (max-width: 1060px) {
-	.menu {
-		display: flex;
-	}
 
-	.navbar-headings {
+
+	.disabledClass {
 		display: none;
 	}
+	.navbar-headings{
+		justify-content: flex-start;
+	}
 
-	.navbar-logo-container img {
-		width: 110px;
+	.navbar-headings a{
+		font-size: 1.1rem;
 	}
 }
 
 @media only screen and (max-width: 660px) {
-	.navbar-logo-container img {
-		width: 80px;
+	.logo-container img {
+		width: 180px;
 		padding: 0;
+	}
+	.inner-container{
+		width: 100%;
 	}
   .navbar-container {
     -webkit-transition: all 0.2s;
@@ -343,3 +352,4 @@
 
   }
 }
+

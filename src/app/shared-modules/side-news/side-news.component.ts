@@ -20,13 +20,12 @@ export class SideNewsComponent implements OnInit {
     ); 
   }
   openArticle(id){
-    console.log(id);
     this.router.navigate(['/clanak', id])
     setTimeout(() => {
       window.location.reload();
     }, 100);
   }
-  aktuelnosti(){
-    console.log("aaaaaa")
+  openAll(){
+    this.router.navigate(['/aktuelnosti'])
   }
 }

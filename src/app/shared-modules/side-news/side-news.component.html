@@ -1,5 +1,5 @@
  <h2>Aktuelni članci</h2>
-    <a class="pogledajSve" routerLink="aktuelnosti">Pogledaj sve</a>
+    <a class="pogledajSve" (click)="openAll()">Pogledaj sve</a>
     <div class="inner-news-container">
     
         <div class="news-box" *ngFor="let newsItem of news" (click)="openArticle(newsItem._id)">

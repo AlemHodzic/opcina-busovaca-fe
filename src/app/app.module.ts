@@ -26,8 +26,13 @@ import { AktuelnostiComponent } from './components/aktuelnosti/aktuelnosti.compo
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from './shared-modules/shared/shared.module';
-
-
+import { GlasnikComponent } from './pages/glasnik/glasnik.component';
+import { UpravaComponent } from './pages/uprava/uprava.component';
+import { VijeceComponent } from './pages/vijece/vijece.component';
+import { ObrasciComponent } from './pages/obrasci/obrasci.component';
+import { FotogalerijaComponent } from './pages/fotogalerija/fotogalerija.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -44,9 +49,15 @@ import { SharedModule } from './shared-modules/shared/shared.module';
     SinglePostComponent,
     NacelnikPageComponent,
     AktuelnostiComponent,
+    GlasnikComponent,
+    UpravaComponent,
+    VijeceComponent,
+    ObrasciComponent,
+    FotogalerijaComponent,
 
   ],
   imports: [
+    MatExpansionModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -56,6 +67,7 @@ import { SharedModule } from './shared-modules/shared/shared.module';
     FormsModule,
     ToastrModule,
     CarouselModule,
+    MatCardModule,
     MatSidenavModule,
     MatMenuModule,
     MatListModule,

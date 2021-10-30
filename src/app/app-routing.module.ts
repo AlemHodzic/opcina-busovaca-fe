@@ -6,6 +6,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { AuthGuard } from './guards/auth.guard';
+import { VijeceComponent } from './pages/vijece/vijece.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'clanak/:id', component: SinglePostComponent},
   {path: 'aktuelnosti', component: AktuelnostiComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'vijecnici', component: VijeceComponent},
   {path: 'o-opcini', loadChildren:() => import('./pages/o-opcini/o-opcini.module')
   .then(mod=> mod.OOpciniModule)
 }

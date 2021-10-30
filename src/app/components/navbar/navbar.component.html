@@ -15,12 +15,12 @@
             
            <div class="navbar-headings">
             <a (click)="openNav()"><i class="fa fa-bars"></i> Izbornik</a>
-            <a class="disabledClass" href="/aktuelnosti">Aktuelnosti</a>
-            <a class="disabledClass">Općinski načelnik</a>
-            <a class="disabledClass">Općinsko vijeće</a>
-            <a class="disabledClass">Službe za upravu</a>
-            <a class="disabledClass">Mjesne zajednice</a>
-            <a class="disabledClass">Dokumenti</a>
+            <a href="/aktuelnosti">Aktuelnosti</a>
+            <a href="/o-opcini/opcinski-nacelnik">Općinski načelnik</a>
+            <a  href="/vijecnici">Općinsko vijeće</a>
+            <a>Službe za upravu</a>
+            <a>Mjesne zajednice</a>
+            <a>Dokumenti</a>
         
            </div>
           
@@ -39,20 +39,20 @@
         <a href="/o-opcini/socio-ekonomski-profit">Socio-ekonomski profit</a>
         <a href="/o-opcini/opcinski-nacelnik">Općinski načelnik</a>
         <a href="/o-opcini/javne-ustanove-i-preduzeca">Javna preduzeća i ustanove</a>
-        <a>Privreda</a>
-        <a>Turizam</a>
-        <a>Kultura</a>
-        <a>Obrazovna i socijalna infrastruktura</a>
-        <a>Sport</a>
-        <a>NVO sektor</a>
-        <a>Mjesne zajednice</a>
+        <a >Privreda</a>
+        <a href="/o-opcini/turizam">Turizam</a>
+        <a href="/o-opcini/kultura">Kultura</a>
+        <a href="/o-opcini/obrazovna-i-socijalna-infrastruktura">Obrazovna i socijalna infrastruktura</a>
+        <a href="/o-opcini/sport">Sport</a>
+        <a href="/o-opcini/nvo">NVO sektor</a>
+        <a href="/o-opcini/mjesne-zajednice">Mjesne zajednice</a>
     </div>
     <hr>
     <a>Službeni glasnik</a>
     <hr>
     <a>Službe za upravu</a>
     <hr>
-    <a>Općinsko vijeće</a>
+    <a href="/vijecnici">Općinsko vijeće</a>
     <hr>
     <a (click)="toggle[1] = !toggle[1]">Aktuelnosti <i *ngIf="!toggle[1]" class="fa fa-angle-down"></i> <i *ngIf="toggle[1]" class="fa fa-angle-up"></i></a>
         <div class="under_menu" [hidden]="!toggle[1]">     

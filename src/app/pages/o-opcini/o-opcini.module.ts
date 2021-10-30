@@ -16,7 +16,7 @@ import { ObrazovnaInfrastrukturaComponent } from './obrazovna-infrastruktura/obr
 import { SportComponent } from './sport/sport.component';
 import { NvoSektorComponent } from './nvo-sektor/nvo-sektor.component';
 import { MjesneZajedniceComponent } from './mjesne-zajednice/mjesne-zajednice.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { MjesneZajedniceComponent } from './mjesne-zajednice/mjesne-zajednice.co
 
   ],
   imports: [
+    MatExpansionModule,
     CommonModule,
     OOpciniRoutingModule,
     SharedModule

@@ -99,7 +99,7 @@ i{
     color: #af7f1e;
 }
 .example-card {
-    max-width: 400px;
+    width: 45%;
     margin-bottom: 8px;
   }
   .example-card img{
@@ -125,6 +125,20 @@ i{
 }
 .mat-card-title{
     margin-bottom: 18px;
+}
+.main-title-container{
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    color: rgb(75, 75, 75);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: rgb(255, 255, 255);
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+.main-title-container h1{
+    font-weight: 400;
+    font-size: 25px;
 }
 
 table {

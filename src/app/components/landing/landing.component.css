@@ -133,6 +133,9 @@ transform: translate3d(0,0,0);
         align-items: center;
         flex-direction: column;
     }
+    .inner-box h1{
+        font-size: 20px;
+    }
     .news-box{
         width: 100%;
         height: auto;
@@ -170,7 +173,9 @@ transform: translate3d(0,0,0);
 
     }
  
-
+    .inner-box h1{
+        font-size: 17px;
+    }
     .inner-titles-container{
         width: 80%;    
     }

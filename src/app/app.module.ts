@@ -3,9 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
-import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
@@ -38,8 +37,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminPanelComponent,
-    EditDialogComponent,
     NavbarComponent,
     LandingComponent,
     JavneUstanoveComponent,

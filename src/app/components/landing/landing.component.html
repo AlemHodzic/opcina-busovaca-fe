@@ -1,3 +1,6 @@
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+  <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+</div>
 <div class="carousel-container">
   <owl-carousel-o id="carousel" [options]="customOptions">
     <ng-template carouselSlide *ngFor="let item of headerPosts">
@@ -42,5 +45,7 @@
       </div>
   </div>
 
-<app-javne-ustanove></app-javne-ustanove>
-<app-counter></app-counter>
+  <app-javne-ustanove></app-javne-ustanove>
+  <app-counter></app-counter>
+
+

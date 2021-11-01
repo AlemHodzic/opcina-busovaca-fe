@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { LoaderService } from 'src/app/loader/loader.service';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
 @Component({
@@ -28,7 +29,7 @@ export class LandingComponent implements OnInit {
     },
     nav: false
   }
-  constructor(private service: PostServiceService, private router: Router ) { }
+  constructor(private service: PostServiceService, private router: Router, public loaderService: LoaderService ) { }
   allPosts: any[] = [];
   headerPosts: any[] = [];
   news: any[] = [];

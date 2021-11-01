@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderService } from 'src/app/loader/loader.service';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { PostServiceService } from 'src/app/services/post-service.service';
 })
 export class SinglePostComponent implements OnInit {
 
-  constructor(private _Activatedroute:ActivatedRoute, private service: PostServiceService, private router: Router) { }
+  constructor(private _Activatedroute:ActivatedRoute, private service: PostServiceService, private router: Router, public loaderService: LoaderService) { }
   id: any;
   object: any;
   dateCreated: any;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/loader/loader.service';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
 
@@ -10,7 +11,7 @@ import { PostServiceService } from 'src/app/services/post-service.service';
 })
 
 export class SideNewsComponent implements OnInit {
-  constructor(private service: PostServiceService, private router: Router) { }
+  constructor(private service: PostServiceService, private router: Router, public loaderService: LoaderService) { }
   news: any[] = [];
   ngOnInit(): void {
     this.service.getPosts().subscribe(

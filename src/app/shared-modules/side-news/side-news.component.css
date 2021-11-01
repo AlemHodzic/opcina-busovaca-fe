@@ -47,6 +47,13 @@
 }
 
 
+.loader-container{
+	height: 50vh;
+	width: 100%;
+	background-color: white;
+	opacity: 0.95;
+	z-index: 999;
+}
 
 
 

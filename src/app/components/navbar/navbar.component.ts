@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/loader/loader.service';
 
 @Component({
   selector: 'app-navbar',

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideNewsComponent } from '../side-news/side-news.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -9,7 +9,8 @@ import { SideNewsComponent } from '../side-news/side-news.component';
     SideNewsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     SideNewsComponent

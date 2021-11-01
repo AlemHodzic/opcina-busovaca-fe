@@ -1,5 +1,8 @@
  <h2>Aktuelni članci</h2>
     <a class="pogledajSve" (click)="openAll()">Pogledaj sve</a>
+    <div *ngIf="loaderService.isLoading | async" class="loader-container">
+      <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+    </div>
     <div class="inner-news-container">
     
         <div class="news-box" *ngFor="let newsItem of news" (click)="openArticle(newsItem._id)">

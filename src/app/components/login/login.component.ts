@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
   login(email, password){
    
    this.auth.signInWithEmailAndPassword(email, password).then(
-     res=> console.log(res)
+     res=> {
+       this.router.navigateByUrl('admin/admin-panel')
+     }
      
    )
   }

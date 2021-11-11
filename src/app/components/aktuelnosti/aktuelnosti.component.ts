@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostServiceService } from 'src/app/services/post-service.service';
+import { LoaderService } from 'src/app/loader/loader.service';
 
 @Component({
   selector: 'app-aktuelnosti',
@@ -10,7 +11,7 @@ import { PostServiceService } from 'src/app/services/post-service.service';
 })
 export class AktuelnostiComponent implements OnInit {
 
-  constructor(private service: PostServiceService, private router: Router,  private formBuilder: FormBuilder) { }
+  constructor(private _Activatedroute:ActivatedRoute, private service: PostServiceService, private router: Router,  private formBuilder: FormBuilder, public loaderService: LoaderService) { }
   searchForm = this.formBuilder.group({
     searchBox: ''
   });
@@ -20,38 +21,56 @@ export class AktuelnostiComponent implements OnInit {
   loaded: boolean = false;
   filteredNews: any[] = [];
   noResult: boolean = false;
+  number: number = 1;
   ngOnInit(): void {
-    this.service.getPaginatedPosts(this.page).subscribe(
+    
+    this._Activatedroute.paramMap.subscribe(params => { 
+      this.number = +params.get('number'); 
+  });
+    this.service.getPaginatedPosts(this.number).subscribe(
       res=> {
+        window.scrollTo(0, 0);
         this.filteredNews = res as [];
-        this.loaded = true;
+        if(this.filteredNews.length == 0){
+          this.number = 1;
+          this.router.navigate(['/aktuelnosti/page', this.number]).then(()=>{
+            window.location.reload()
+            
+          }
+          )
+        }
       }
     )
   }
   previousPage(){
     this.noResult = false;
-    if(this.page <= 1){
+    if(this.number <= 1){
       console.log("error")
     }
     else{
-      this.loaded = false;
-      this.filteredNews = [];
-      this.page -= 1;
-      this.service.getPaginatedPosts(this.page).subscribe(
-        res=> {
-          this.filteredNews = res as [];
-          this.loaded = true;
-        }
+      this.number -= 1;
+      console.log(this.number)
+      //this.router.navigateByUrl(`/aktuelnosti/page/${this.number}`);
+      
+      this.router.navigate(['/aktuelnosti/page', this.number]).then(()=>{
+        window.location.reload()
+        
+      }
       )
+      
     }
   }
 
+
   nextPage(){
-    this.noResult = false;
-    this.page++;
-    this.loaded = false;
-    this.filteredNews = [];
-    this.service.getPaginatedPosts(this.page).subscribe(
+    this.number++;
+    this.router.navigate(['/aktuelnosti/page', this.number]).then(()=>{
+      window.location.reload()
+      
+    }
+    )
+
+    /*this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
         this.filteredNews = res as [];
         if(this.filteredNews.length == 0){
@@ -63,7 +82,7 @@ export class AktuelnostiComponent implements OnInit {
         }
         
       }
-    )
+    ) */
   }
 
   onSubmit(){
@@ -94,13 +113,10 @@ export class AktuelnostiComponent implements OnInit {
     this.noResult = false;
     this.filteredNews = [];
     this.loaded = false;
-    this.page = 1;
-    this.service.getPaginatedPosts(this.page).subscribe(
-      res=> {
-        this.filteredNews = res as [];
-        this.loaded = true;
-      }
-    )
+    this.number = 1;
+    this.router.navigate(['/aktuelnosti/page', this.number]).then(()=>{
+      window.location.reload() 
+    })
     }
   }
 }

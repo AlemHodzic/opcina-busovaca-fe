@@ -6,6 +6,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DocumentsComponent } from './pages/dokumenti/documents/documents.component';
 import { UpravaComponent } from './pages/uprava/uprava.component';
 import { VijeceComponent } from './pages/vijece/vijece.component';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'sluzbe-uprave', component: UpravaComponent},
   {path: 'vijecnici', component: VijeceComponent},
+  {path: 'dokumenti', component: DocumentsComponent},
   {path: 'o-opcini', loadChildren:() => import('./pages/o-opcini/o-opcini.module')
   .then(mod=> mod.OOpciniModule)
 }

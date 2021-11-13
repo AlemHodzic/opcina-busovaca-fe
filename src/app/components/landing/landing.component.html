@@ -3,13 +3,28 @@
 </div>
 <div class="carousel-container">
   <owl-carousel-o id="carousel" [options]="customOptions">
+    <ng-template carouselSlide>
+      <div class="slide">
+        <div class="inner-content-container">
+          <div class="inner-box">
+            <h3>Naslovna stranica</h3>
+              <h1>Općina Busovača</h1>
+              <p routerLink="/o-opcini/o-nama">Saznaj više</p>
+          </div>
+        </div>
+        <div class="img-container">
+          <img src="../../../assets/img/landing/main.png" alt="">
+        </div>
+      
+      </div>
+    </ng-template>
     <ng-template carouselSlide *ngFor="let item of headerPosts">
       <div class="slide">
         <div class="inner-content-container">
           <div class="inner-box">
               <h3>{{item.subTitle}}</h3>
               <h1>{{item.title}}</h1>
-              <p (click)="openArticle(item._id)">Saznaj vise</p>
+              <p (click)="openArticle(item._id)">Saznaj više</p>
           </div>
         </div>
         <div class="img-container">

@@ -78,6 +78,10 @@ transform: translate3d(0,0,0);
     font-weight: 400;
 }
 
+.inner-titles-container h3{
+    text-decoration: underline;
+}
+
 .news-container{
     width: 100%;
     margin: 30px 0;

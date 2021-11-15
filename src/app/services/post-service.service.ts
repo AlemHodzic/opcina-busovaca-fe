@@ -31,6 +31,7 @@ export class PostServiceService {
     this.http.post(this.url, object).subscribe(
       res => {
         console.log(res);
+        window.location.reload()
       }
     )
   }
@@ -39,6 +40,7 @@ export class PostServiceService {
     this.http.patch(`${this.url}/${id}`, object).subscribe(
       res => {
         console.log(res);
+        window.location.reload()
       }
     )
   }

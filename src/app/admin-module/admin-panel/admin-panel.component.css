@@ -1,3 +1,9 @@
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+.mat-tab{
+    width: 80%;
+}
 .main-container{
     width: 100%;
     height: auto;
@@ -161,9 +167,26 @@ button:hover {
 
 }
 
+.servisne-info-container{
+    width: 50%;
+    height: auto;
+   
+}
+.servis-item{
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid rgb(160, 131, 2);
+    margin-top: 10px;
+}
+.servis-item p{
+    margin-bottom: 5px;
+}
+
 .pagination-container{
     margin-top: 50px;
 }
+
 
 ul {
     position: relative;

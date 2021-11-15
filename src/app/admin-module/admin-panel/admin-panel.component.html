@@ -1,34 +1,88 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="NOVOSTI">
+        <div class="bt-container">
+            <button (click)="addNovost()" class="dodajNovost">Dodaj novost</button>
+        </div>
 
-<div class="bt-container">
-    <button class="dodajNovost">Dodaj novost</button>
-</div>
+        <div class="content-container">
+            <form action="" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <input (input)="onSearchChange($event.target.value)" formControlName="searchBox" type="text"
+                    placeholder="Pretraga novosti.." name="search" minlength="5">
+                <button type="submit">Traži</button>
+            </form>
+            <p *ngIf="warning">Unesite više od 4 karaktera.</p>
+            <div class="filtered-content">
+                <div *ngIf="!loaded" class="loader"></div>
+                <div class="news-container" *ngFor="let news of filteredNews">
+                    <div class="img-container">
+                        <img src="{{news.selectedFile}}" alt="">
+                    </div>
+                    <div class="text-container">
+                        <h4>{{news.subTitle}}</h4>
+                        <h2>{{news.title}}</h2>
+                        <p>{{news.createdAt}}</p>
+                        <button (click)="openDialog(news._id)" type="button" class="btn btn-outline-dark"><i
+                                class="fa fa-pencil"></i></button>
+                        <button (click)="deleteItem(news._id)" type="button" class="btn btn-outline-dark"><i
+                                class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+                <p *ngIf="noResult">Nema rezultata pretrage.</p>
+            </div>
+            <div class="pagination-container">
+                <ul class="pagination">
+                    <li><a (click)="previousPage()" class="prev">
+                            < Nazad </a>
+                    </li>
+                    <li><a (click)="nextPage()" class="next">Sljedeća ></a></li>
+                </ul>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="SERVISNE INFORMACIJE">
+        <div class="bt-container">
+            <button (click)="addServis()" class="dodajNovost">Dodaj servisnu informaciju</button>
+        </div>
 
-<div class="content-container">
-    <form action="" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-        <input (input)="onSearchChange($event.target.value)"  formControlName="searchBox" type="text" placeholder="Pretraga novosti.." name="search" minlength="5">
-        <button type="submit">Traži</button>
-      </form>
-      <p *ngIf="warning">Unesite više od 4 karaktera.</p>
-      <div class="filtered-content">
-        <div *ngIf="!loaded" class="loader"></div>
-          <div class="news-container" *ngFor="let news of filteredNews">
-              <div class="img-container">
-                  <img src="{{news.selectedFile}}" alt="">
-              </div>
-              <div class="text-container">
-                  <h4>{{news.subTitle}}</h4>
-                  <h2>{{news.title}}</h2>
-                  <p>{{news.createdAt}}</p>
-               <button (click)="openDialog(news._id)" type="button" class="btn btn-outline-dark"><i class="fa fa-pencil"></i></button>
-               <button (click)="deleteItem(news._id)" type="button" class="btn btn-outline-dark"><i class="fa fa-trash"></i></button>
-              </div>
-          </div>
-          <p *ngIf="noResult">Nema rezultata pretrage.</p>
-      </div>
-      <div class="pagination-container">
-        <ul class="pagination">
-            <li><a (click)="previousPage()" class="prev">< Nazad </a></li>
-            <li><a (click)="nextPage()" class="next">Sljedeća ></a></li>
-          </ul>
-      </div>
-</div>
+        <div class="content-container">
+            <form action="" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <input (input)="onSearchChange($event.target.value)" formControlName="searchBox" type="text"
+                    placeholder="Pretraga novosti.." name="search" minlength="5">
+                <button type="submit">Traži</button>
+            </form>
+            <p *ngIf="warning">Unesite više od 4 karaktera.</p>
+           
+                <div *ngIf="!loadedServisneInfo" class="loader"></div>
+            
+                <p *ngIf="noResult">Nema rezultata pretrage.</p>
+            <div class="servisne-info-container">
+                <div class="servis-item" *ngFor="let item of servisneInformacije">
+                  
+                    <p>{{item.title}}</p>
+                    <p>{{item.createdAt}}</p>
+                    <button (click)="editServis(item._id)" type="button" class="btn btn-outline-dark"><i
+                        class="fa fa-pencil"></i></button>
+                <button (click)="deleteServis(item._id)" type="button" class="btn btn-outline-dark"><i
+                        class="fa fa-trash"></i></button>
+                </div>
+               
+            </div>
+            <div class="pagination-container">
+                <ul class="pagination">
+                    <li><a (click)="previousPage()" class="prev">
+                            < Nazad </a>
+                    </li>
+                    <li><a (click)="nextPage()" class="next">Sljedeća ></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </mat-tab>
+    <mat-tab label="Third">Content 3</mat-tab>
+</mat-tab-group>
+
+
+
+
+    
+    

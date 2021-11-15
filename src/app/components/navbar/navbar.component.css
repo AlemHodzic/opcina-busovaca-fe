@@ -1,7 +1,7 @@
 .logo-container{
     width: 100%;
     height: 10vh;
-	background-color: #292929;
+	background-color: #2C303A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,16 +14,16 @@
 
 #filler{
     width: 100%;
-    height: 8.5vh;
+    height: 8vh;
     display: none;
-	background-color: #292929;
+	background-color: #2C303A;
 
 }
 
 .navbar-container {
 	margin-top: -2px;
 	width: 100%;
-	height: 8.5vh;
+	height: 8vh;
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
 	transition: all 0.2s;
@@ -32,7 +32,7 @@
 	align-items: center;
 	z-index: 10;
 	padding: 10px;
-	background-color: #292929;
+	background-color: #2C303A;
 }
 
 .fixed {
@@ -79,9 +79,15 @@
 	align-items: center;
 }
 
+.push{
+	margin-right: 55px;
+}
+.push2{
+	margin-left: 55px;
+}
 .navbar-headings a {
-	color: white;
-	padding: 0 20px;
+	color: #e0e7ee;
+	padding: 0 10px;
 	cursor: pointer;
 	transition: 0.2s;
 	font-weight: 400;
@@ -89,12 +95,19 @@
 }
 
 .navbar-headings h4 {
-	color: white;
+	color: #e7ecf1;
 	padding: 0 20px;
 	cursor: pointer;
 	transition: 0.2s;
 	font-weight: 400;
 	font-size: 1rem;
+	transition: 0.2s;
+}
+.navbar-headings h4:hover{
+	color: #ffffff;
+}
+.navbar-headings a:hover{
+	color: #ffffff;
 }
 
 .navbar-headings h4:hover {
@@ -213,7 +226,7 @@
 	z-index: 10; /* Stay on top */
 	top: 0;
 	left: 0;
-	background-color: rgb(24, 24, 24); /* Black*/
+	background-color: #292c35; 
 	overflow-x: hidden; /* Disable horizontal scroll */
 	padding-top: 60px; /* Place content 60px from the top */
 
@@ -234,7 +247,7 @@
 
 #mySidebar::-webkit-scrollbar-thumb
 {
-	background-color: #000000;
+	background-color: #20232b;
 
 }
 

@@ -36,6 +36,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { InterceptorService } from './loader/interceptor.service';
 import { ServisNabavkeComponent } from './components/servis-nabavke/servis-nabavke.component';
 import { DocumentsComponent } from './pages/dokumenti/documents/documents.component';
+import { DokumentiZakComponent } from './pages/dokumenti-zakljuci/dokumenti-zak/dokumenti-zak.component';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +58,7 @@ import { DocumentsComponent } from './pages/dokumenti/documents/documents.compon
     FotogalerijaComponent,
     ServisNabavkeComponent,
     DocumentsComponent,
-
+    DokumentiZakComponent,
   ],
   imports: [
     MatExpansionModule,

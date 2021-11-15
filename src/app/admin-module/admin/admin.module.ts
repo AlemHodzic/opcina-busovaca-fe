@@ -9,17 +9,25 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import { AddNovostComponent } from '../add-novost/add-novost.component';
+import { AddServisComponent } from '../add-servis/add-servis.component';
+import { EditServisComponent } from '../edit-servis/edit-servis.component';
 
 @NgModule({
   declarations: [
     AdminPanelComponent,
-    EditDialogComponent
+    AddNovostComponent,
+    EditDialogComponent,
+    AddServisComponent, 
+    EditServisComponent
+
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MatDialogModule,
+    MatTabsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

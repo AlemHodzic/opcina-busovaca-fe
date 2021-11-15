@@ -14,13 +14,13 @@
               </button>
             
            <div class="navbar-headings">
-            <a (click)="openNav()"><i class="fa fa-bars"></i> Izbornik</a>
+            <a class="push" (click)="openNav()"><i class="fa fa-bars"></i> Izbornik</a>
             <a href="/aktuelnosti/page/1" class="disabledClass">Aktuelnosti</a>
             <a href="/o-opcini/opcinski-nacelnik" class="disabledClass">Općinski načelnik</a>
             <a  href="/vijecnici" class="disabledClass">Općinsko vijeće</a>
             <a href="/sluzbe-uprave" class="disabledClass">Službe za upravu</a>
-            <a class="disabledClass">Mjesne zajednice</a>
-            <a href="/dokumenti" class="disabledClass">Dokumenti</a>
+            <a href="/o-opcini/mjesne-zajednice" class="disabledClass">Mjesne zajednice</a>
+            <a  class="push2 disabledClass"><i class="fa fa-map-marker"></i></a>
         
            </div>
           
@@ -52,7 +52,12 @@
     <hr>
     <a>Službe za upravu</a>
     <hr>
-    <a href="/vijecnici">Općinsko vijeće</a>
+    <a (click)="toggle[2] = !toggle[2]">Općinsko vijeće  <i *ngIf="!toggle[2]" class="fa fa-angle-down"></i> <i *ngIf="toggle[2]" class="fa fa-angle-up"></i></a>
+    <div class="under_menu" [hidden]="!toggle[2]">     
+        <a href="">Općinsko vijeće</a>
+        <a href="/vijecnici">Općinski viječnici</a>
+        <a>Dokumenti i zaključci Općinskog vijeća</a>
+   </div>
     <hr>
     <a (click)="toggle[1] = !toggle[1]">Aktuelnosti <i *ngIf="!toggle[1]" class="fa fa-angle-down"></i> <i *ngIf="toggle[1]" class="fa fa-angle-up"></i></a>
         <div class="under_menu" [hidden]="!toggle[1]">     
@@ -61,12 +66,8 @@
              <a>Drugi o nama</a>
         </div>
         <hr>
-        <a (click)="toggle[2] = !toggle[2]">Dokumenti <i *ngIf="!toggle[2]" class="fa fa-angle-down"></i> <i *ngIf="toggle[2]" class="fa fa-angle-up"></i></a>
-        <div  class="under_menu" [hidden]="!toggle[2]">     
-             <a>Strategije</a>
-             <a>Budžeti</a>
-             <a>Zahtjevi</a>    
-        </div>  
+        <a href="/dokumenti">Dokumenti</a>
+      
         <hr>
     <a>Obrasci</a>
     <hr>

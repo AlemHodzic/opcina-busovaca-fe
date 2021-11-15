@@ -6,6 +6,10 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { ServisServiceService } from 'src/app/services/servis-service.service';
+import { AddNovostComponent } from '../add-novost/add-novost.component';
+import { AddServisComponent } from '../add-servis/add-servis.component';
+import { EditServisComponent } from '../edit-servis/edit-servis.component';
 
 
 @Component({
@@ -24,7 +28,7 @@ export class AdminPanelComponent implements OnInit {
     tags: [String],
     selectedFile: String,
   }
-  constructor(private service: PostServiceService, public dialog: MatDialog, public auth: AngularFireAuth, private router: Router,  private formBuilder: FormBuilder) {
+  constructor(private servisService: ServisServiceService, private service: PostServiceService, public dialog: MatDialog, public auth: AngularFireAuth, private router: Router,  private formBuilder: FormBuilder) {
 
    }
 
@@ -35,13 +39,21 @@ export class AdminPanelComponent implements OnInit {
 
   page: number = 1;
   loaded: boolean = false;
+  loadedServisneInfo: boolean = false;
   filteredNews: any[] = [];
+  servisneInformacije: any[] = [];
   noResult: boolean = false;
   ngOnInit(): void {
     this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
         this.filteredNews = res as [];
         this.loaded = true;
+      }
+    )
+    this.servisService.getServisneInformacije(this.page).subscribe(
+      res=> {
+        this.servisneInformacije = res as [];
+        this.loadedServisneInfo = true;
       }
     )
     this.service.getPosts().subscribe(
@@ -70,7 +82,12 @@ export class AdminPanelComponent implements OnInit {
       isHeader: new FormControl("")
    });
   }
-
+  addNovost(){
+    this.dialog.open(AddNovostComponent)
+  }
+  addServis(){
+    this.dialog.open(AddServisComponent)
+  }
   handleUpload(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -99,7 +116,19 @@ export class AdminPanelComponent implements OnInit {
         location.reload();
       }, 500);
     }
-   
+ }
+ deleteServis(id){
+  const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovaj servis?");
+  if(answer){
+    //this.service.deletePost(id);
+  }
+ }
+ editServis(item){
+  this.dialog.open(EditServisComponent, {
+    data: {
+      id: item
+    }
+  })
  }
 
  openDialog(item){

@@ -1,1 +1,26 @@
-<p>edit-servis works!</p>
+<div class="modal-container">
+    <div class="form-container">
+        <div class="top-form">
+            <h3>Uređivanje servisne informacije</h3>
+        </div>
+    
+        <div class="contact-container">
+    
+          <div class="contact-description">
+              <form class="contact-form" [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
+                  <input
+                  type="text"  placeholder="Naslov" name="title" tabindex="1" formControlName="title" 
+                  />
+                  <textarea placeholder="Tekst" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
+
+                  <div class="btn-container">
+                    <button class="close-btn" value="CLOSE" type="button" (click)="closeDialog()">Zatvori</button>
+                    <button class="send-btn" type="submit" value="Send">Dodaj</button>
+                  </div> 
+              </form>
+           
+          </div>
+    
+      </div>
+    </div>
+</div>

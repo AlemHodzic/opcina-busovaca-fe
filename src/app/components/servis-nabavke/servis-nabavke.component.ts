@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServisServiceService } from 'src/app/services/servis-service.service';
 
 @Component({
   selector: 'app-servis-nabavke',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServisNabavkeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public servisService: ServisServiceService) { }
+  servisneInfo: any[] = [];
   ngOnInit(): void {
+    this.servisService.getServisneInformacijeForMain().subscribe(
+      res=> {
+        this.servisneInfo = res as [];
+      }
+    )
   }
 
 }

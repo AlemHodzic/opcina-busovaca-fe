@@ -10,30 +10,12 @@
 
 
   <ul class="l-news">
-    <li class="l-news__content p-news__content">
+    <li class="l-news__content p-news__content" *ngFor="let item of servisneInfo" [routerLink]="['servisne-informacije', item._id]">
       <div class="content-container">
 
-        <div class="l-news__content__day p-news__content__day">2021.06.01</div>
-        <div class="l-news__content__label p-news__content__label disappear">SERVISNE-INFORMACIJE</div>
-        <div class="l-news__content__text p-news__content__text">Javne nabavke neke ovo ovdadawdfef erwgr gefewsfefefaswfdaeswf lore</div>
-      </div>
-       
-        <div class="arrow-container">></div>
-    </li>
-    <li class="l-news__content p-news__content">
-      <div class="content-container">
-        <div class="l-news__content__day p-news__content__day">2021.06.01</div>
-        <div class="l-news__content__label p-news__content__label disappear">SERVISNE-INFORMACIJE</div>
-        <div class="l-news__content__text p-news__content__text">Javne nabavke neke ovo ovdadawdfef erwgr gefewsfefefaswfdaeswf</div>
-      </div>
-       
-        <div class="arrow-container">></div>
-    </li>
-    <li class="l-news__content p-news__content">
-      <div class="content-container">
-        <div class="l-news__content__day p-news__content__day">2021.06.01</div>
-        <div class="l-news__content__label p-news__content__label disappear">SERVISNE-INFORMACIJE</div>
-        <div class="l-news__content__text p-news__content__text">Javne nabavke neke ovo ovdadawdfef erwgr gefewsfefefaswfdaeswf</div>
+        <div class="l-news__content__day p-news__content__day">{{item.createdAt}}</div>
+        <div class="l-news__content__label p-news__content__label disappear">SERVISNE INFORMACIJE</div>
+        <div class="l-news__content__text p-news__content__text">{{item.title}}</div>
       </div>
        
         <div class="arrow-container">></div>

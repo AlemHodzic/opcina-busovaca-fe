@@ -45,16 +45,16 @@
         </div>
 
         <div class="content-container">
-            <form action="" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                <input (input)="onSearchChange($event.target.value)" formControlName="searchBox" type="text"
-                    placeholder="Pretraga novosti.." name="search" minlength="5">
+            <form action="" [formGroup]="searchFormServis" (ngSubmit)="onSubmitServis()">
+                <input (input)="onSearchChangeServis($event.target.value)" formControlName="searchBox" type="text"
+                    placeholder="Pretraga servisnih informacija.." name="search" minlength="4">
                 <button type="submit">Traži</button>
             </form>
             <p *ngIf="warning">Unesite više od 4 karaktera.</p>
            
                 <div *ngIf="!loadedServisneInfo" class="loader"></div>
             
-                <p *ngIf="noResult">Nema rezultata pretrage.</p>
+                <p *ngIf="noResultServis">Nema rezultata pretrage.</p>
             <div class="servisne-info-container">
                 <div class="servis-item" *ngFor="let item of servisneInformacije">
                   
@@ -69,10 +69,10 @@
             </div>
             <div class="pagination-container">
                 <ul class="pagination">
-                    <li><a (click)="previousPage()" class="prev">
+                    <li><a (click)="previousPageServis()" class="prev">
                             < Nazad </a>
                     </li>
-                    <li><a (click)="nextPage()" class="next">Sljedeća ></a></li>
+                    <li><a (click)="nextPageServis()" class="next">Sljedeća ></a></li>
                 </ul>
             </div>
 

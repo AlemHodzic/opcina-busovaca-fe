@@ -22,7 +22,6 @@ export class EditDialogComponent implements OnInit {
       selectedFile:  new FormControl("")
    });
 
-    console.log(this.data);
     this.service.getPost(this.data.id).subscribe(
       res=>{
         this.post = res;

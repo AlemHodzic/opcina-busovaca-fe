@@ -37,6 +37,8 @@ import { InterceptorService } from './loader/interceptor.service';
 import { ServisNabavkeComponent } from './components/servis-nabavke/servis-nabavke.component';
 import { DocumentsComponent } from './pages/dokumenti/documents/documents.component';
 import { DokumentiZakComponent } from './pages/dokumenti-zakljuci/dokumenti-zak/dokumenti-zak.component';
+import { ServisSingleComponent } from './pages/servis-single/servis-single.component';
+import { RadnaTijelaComponent } from './pages/radna-tijela/radna-tijela.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { DokumentiZakComponent } from './pages/dokumenti-zakljuci/dokumenti-zak/
     ServisNabavkeComponent,
     DocumentsComponent,
     DokumentiZakComponent,
+    ServisSingleComponent,
+    RadnaTijelaComponent,
   ],
   imports: [
     MatExpansionModule,

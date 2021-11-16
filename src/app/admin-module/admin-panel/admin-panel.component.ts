@@ -35,14 +35,19 @@ export class AdminPanelComponent implements OnInit {
    searchForm = this.formBuilder.group({
     searchBox: ''
   });
+  searchFormServis = this.formBuilder.group({
+    searchBox: ''
+  });
   warning: boolean = false;
 
   page: number = 1;
+  pageServis: number = 1;
   loaded: boolean = false;
   loadedServisneInfo: boolean = false;
   filteredNews: any[] = [];
   servisneInformacije: any[] = [];
   noResult: boolean = false;
+  noResultServis: boolean = false;
   ngOnInit(): void {
     this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
@@ -50,7 +55,7 @@ export class AdminPanelComponent implements OnInit {
         this.loaded = true;
       }
     )
-    this.servisService.getServisneInformacije(this.page).subscribe(
+    this.servisService.getServisneInformacije(this.pageServis).subscribe(
       res=> {
         this.servisneInformacije = res as [];
         this.loadedServisneInfo = true;
@@ -60,19 +65,9 @@ export class AdminPanelComponent implements OnInit {
       res => {
         this.posts = res as [];
         this.posts.reverse();
-        //console.log(this.posts);
+      
       }
     );
-
-
-
-    /*this.service.getPost("615056101c0f4007ea810b3d").subscribe(
-      res => {
-        console.log(res);
-      }
-    );
-    */
-
     this.formdata = new FormGroup({
       title: new FormControl(""),
       subTitle: new FormControl(""),
@@ -108,7 +103,6 @@ export class AdminPanelComponent implements OnInit {
  }
   
   deleteItem(id){
-    console.log(id);
     const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovu novost?");
     if(answer){
       this.service.deletePost(id);
@@ -120,7 +114,7 @@ export class AdminPanelComponent implements OnInit {
  deleteServis(id){
   const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovaj servis?");
   if(answer){
-    //this.service.deletePost(id);
+    this.servisService.deleteServis(id)
   }
  }
  editServis(item){
@@ -176,6 +170,45 @@ export class AdminPanelComponent implements OnInit {
     )
   }
 
+  previousPageServis(){
+    this.noResultServis = false;
+    if(this.pageServis <= 1){
+      console.log("error")
+    }
+    else{
+      this.loadedServisneInfo = false;
+      this.servisneInformacije = [];
+      this.pageServis -= 1;
+      this.servisService.getServisneInformacije(this.pageServis).subscribe(
+        res=> {
+          this.servisneInformacije = res as [];
+          this.loadedServisneInfo = true;
+        }
+      )
+    }
+  }
+
+  nextPageServis(){
+    this.noResultServis = false;
+    this.pageServis++;
+    this.loadedServisneInfo = false;
+    this.servisneInformacije = [];
+    this.servisService.getServisneInformacije(this.pageServis).subscribe(
+      res=> {
+        this.servisneInformacije = res as [];
+        if(this.servisneInformacije.length == 0){
+          this.previousPageServis();
+          this.loadedServisneInfo = false;
+          alert("Nema rezultata.")
+        }else{
+          this.loadedServisneInfo = true;
+        }
+        
+      }
+    )
+  }
+
+
   onSubmit(){
     this.noResult = false;
     if(this.searchForm.value.searchBox.length < 4){
@@ -196,7 +229,27 @@ export class AdminPanelComponent implements OnInit {
         }
       )
     }
-   
+  }
+  onSubmitServis(){
+    this.noResult = false;
+    if(this.searchFormServis.value.searchBox.length < 4){
+      this.warning = true;
+    }else{
+      this.loaded = false;
+      this.filteredNews = [];
+      this.warning = false;
+      this.servisService.searchByName(this.searchFormServis.value.searchBox).subscribe(
+        res=> {
+          this.servisneInformacije = res as [];
+          if(this.servisneInformacije.length == 0){
+            this.noResultServis = true;
+          }else{
+            this.noResultServis = false;
+          }
+          this.loadedServisneInfo = true;
+        }
+      )
+    }
   }
 
   onSearchChange(e){
@@ -212,6 +265,20 @@ export class AdminPanelComponent implements OnInit {
       }
     )
     }
+  }
+  onSearchChangeServis(e){
+    if(e == ''){
+      this.noResult = false;
+      this.filteredNews = [];
+      this.loaded = false;
+      this.pageServis = 1;
+      this.servisService.getServisneInformacije(this.pageServis).subscribe(
+        res=> {
+          this.servisneInformacije = res as [];
+          this.loadedServisneInfo = true;
+        }
+      )
+      }
   }
 
 

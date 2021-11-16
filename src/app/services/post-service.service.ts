@@ -30,7 +30,6 @@ export class PostServiceService {
   createPost(object){
     this.http.post(this.url, object).subscribe(
       res => {
-        console.log(res);
         window.location.reload()
       }
     )
@@ -39,7 +38,6 @@ export class PostServiceService {
   updatePost(id, object){
     this.http.patch(`${this.url}/${id}`, object).subscribe(
       res => {
-        console.log(res);
         window.location.reload()
       }
     )
@@ -48,7 +46,7 @@ export class PostServiceService {
   deletePost(id){
     this.http.delete(`${this.url}/${id}`).subscribe(
       res => {
-        console.log(res);
+        window.location.reload()
       }
     )
   }

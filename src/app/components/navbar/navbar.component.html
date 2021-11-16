@@ -50,21 +50,16 @@
     <hr>
     <a>Službeni glasnik</a>
     <hr>
-    <a>Službe za upravu</a>
+    <a href="/sluzbe-uprave">Službe za upravu</a>
     <hr>
     <a (click)="toggle[2] = !toggle[2]">Općinsko vijeće  <i *ngIf="!toggle[2]" class="fa fa-angle-down"></i> <i *ngIf="toggle[2]" class="fa fa-angle-up"></i></a>
     <div class="under_menu" [hidden]="!toggle[2]">     
-        <a href="">Općinsko vijeće</a>
         <a href="/vijecnici">Općinski viječnici</a>
-        <a>Dokumenti i zaključci Općinskog vijeća</a>
+        <a href="/dokumenti-i-zakljucci">Dokumenti i zaključci Općinskog vijeća</a>
+        <a href="/radna-tijela-povjerenstva">Radna tijela i povjerenstva/komisije Općinskog vijeća</a>
    </div>
     <hr>
-    <a (click)="toggle[1] = !toggle[1]">Aktuelnosti <i *ngIf="!toggle[1]" class="fa fa-angle-down"></i> <i *ngIf="toggle[1]" class="fa fa-angle-up"></i></a>
-        <div class="under_menu" [hidden]="!toggle[1]">     
-             <a>Vijesti</a>
-             <a>Javni pozivi</a>
-             <a>Drugi o nama</a>
-        </div>
+    <a href="/aktuelnosti/page/1">Aktuelnosti</a>
         <hr>
         <a href="/dokumenti">Dokumenti</a>
       

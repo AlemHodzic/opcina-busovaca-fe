@@ -10,6 +10,7 @@ export class ObrasciComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+//../../../assets/files/
   }
 
 }

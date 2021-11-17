@@ -8,6 +8,7 @@ import { SinglePostComponent } from './components/single-post/single-post.compon
 import { AuthGuard } from './guards/auth.guard';
 import { DokumentiZakComponent } from './pages/dokumenti-zakljuci/dokumenti-zak/dokumenti-zak.component';
 import { DocumentsComponent } from './pages/dokumenti/documents/documents.component';
+import { ObrasciComponent } from './pages/obrasci/obrasci.component';
 import { RadnaTijelaComponent } from './pages/radna-tijela/radna-tijela.component';
 import { ServisSingleComponent } from './pages/servis-single/servis-single.component';
 import { UpravaComponent } from './pages/uprava/uprava.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'dokumenti', component: DocumentsComponent},
   {path: 'dokumenti-i-zakljucci', component: DokumentiZakComponent},
   {path: 'radna-tijela-povjerenstva', component: RadnaTijelaComponent},
+  {path: 'obrasci', component: ObrasciComponent},
   {path: 'o-opcini', loadChildren:() => import('./pages/o-opcini/o-opcini.module')
   .then(mod=> mod.OOpciniModule)
 }

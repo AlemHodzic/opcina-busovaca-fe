@@ -45,7 +45,6 @@ i{
 
 .content-container p{
     width: 95%;
-    text-align: justify;
     font-size: 15px;
 }
 
@@ -100,11 +99,14 @@ i{
 }
 
 table {
+    overflow-x: auto;
+    display: block;
     width: 95%;
     border-right-color: #ffffff;
     font-size: 16px;
     /* /* border: 1px solid #343a40; */
     border-collapse: collapse; 
+    table-layout:fixed;
   }
   
   th, td {
@@ -127,6 +129,61 @@ table {
   tbody tr:nth-child(even){
     background-color: #e9ecef;
   }
+  .tablemobile {
+    overflow-x: auto;
+    display: block;
+}
 
+
+
+/*responsiveness*/
+
+@media only screen and (max-width: 950px) {
+    h2{
+        font-size: 18px;
+    }
+    h3{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 850px) {
+    .main-container{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .content-container{
+
+        width: 95%;
+        min-height: 100vh;
+        height: auto;
+        border: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        order: 1;
+    }
+    .links-container{
+        width: 95%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+        flex-direction: column;
+        order: 2;
+        border-top: 1px solid rgb(187, 187, 187)
+    
+    }
+    .other-articles-container{
+        width: 95%;
+        height: auto;
+        padding: 20px;
+        order: 3;
+        border-top: 1px solid rgb(187, 187, 187);
+    }
+  
+}
 
 

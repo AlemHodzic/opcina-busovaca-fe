@@ -140,6 +140,9 @@ i{
     font-weight: 400;
     font-size: 25px;
 }
+.under-title{
+    font-weight: bold;
+}
 
 table {
     overflow-x: auto;
@@ -180,8 +183,24 @@ table {
 
 
 /*responsiveness*/
+@media only screen and (max-width: 1350px) {
+    .inner-cards{
+        justify-content: center;
+    }
+    .example-card {
+        width: 75%;
+      }
+      .example-card img{
+          height: 200px;
+          margin-left: 50px;
+      }
+}
 
-@media only screen and (max-width: 850px) {
+
+@media only screen and (max-width: 1000px) {
+    h1{
+        font-size: 20px;
+    }
     h2{
         font-size: 18px;
     }
@@ -189,7 +208,10 @@ table {
         font-size: 15px;
     }
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
+    .example-card {
+        width: 95%;
+      }
     .main-container{
         justify-content: center;
         align-items: center;
@@ -229,7 +251,32 @@ table {
   
 }
 
+@media only screen and (max-width: 550px) {
+    .main-title-container{
+        padding: 4px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    .main-title-container h1{
+        font-size: 18px;
+    }
+    .example-card {
+        width: 100%;
+      }
+      .example-card img{
+          height: 150px;
+          margin-left: 30px;
+      }
+}
 
 
+@media only screen and (max-width: 400px) {
 
+   
+ 
+      .example-card img{
+          height: 120px;
+          margin-left: 10px;
+      }
+}
 

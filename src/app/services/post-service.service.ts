@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class PostServiceService {
   
   constructor(private http: HttpClient) { }
-  url = 'http://localhost:5000/posts'
+  url = 'https://busovaca-api.herokuapp.com/posts'
 
   getPosts(){
     return this.http.get(this.url)

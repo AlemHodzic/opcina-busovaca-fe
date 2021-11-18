@@ -19,9 +19,7 @@ import { FooterComponent } from './components/footer/footer.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
-import { SinglePostComponent } from './components/single-post/single-post.component';
 import { NacelnikPageComponent } from './components/nacelnik-page/nacelnik-page.component';
-import { AktuelnostiComponent } from './components/aktuelnosti/aktuelnosti.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from './shared-modules/shared/shared.module';
@@ -39,6 +37,7 @@ import { DocumentsComponent } from './pages/dokumenti/documents/documents.compon
 import { DokumentiZakComponent } from './pages/dokumenti-zakljuci/dokumenti-zak/dokumenti-zak.component';
 import { ServisSingleComponent } from './pages/servis-single/servis-single.component';
 import { RadnaTijelaComponent } from './pages/radna-tijela/radna-tijela.component';
+import { SinglePostComponent } from './components/single-post/single-post.component';
 
 
 @NgModule({
@@ -50,9 +49,7 @@ import { RadnaTijelaComponent } from './pages/radna-tijela/radna-tijela.componen
     CounterComponent,
     AnimatedDigitComponent,
     FooterComponent,
-    SinglePostComponent,
     NacelnikPageComponent,
-    AktuelnostiComponent,
     GlasnikComponent,
     UpravaComponent,
     VijeceComponent,
@@ -63,6 +60,7 @@ import { RadnaTijelaComponent } from './pages/radna-tijela/radna-tijela.componen
     DokumentiZakComponent,
     ServisSingleComponent,
     RadnaTijelaComponent,
+    SinglePostComponent
   ],
   imports: [
     MatExpansionModule,

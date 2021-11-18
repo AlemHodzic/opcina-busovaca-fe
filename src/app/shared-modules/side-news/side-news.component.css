@@ -2,6 +2,12 @@
 .other-articles-container h2{
     margin-bottom: 15px;
 }
+h2{
+    font-size: 22px;
+}
+h3{
+    font-size: 16px;
+}
 
 .inner-news-container{
     margin-top: 15px;
@@ -55,7 +61,14 @@
 	z-index: 999;
 }
 
-
+@media only screen and (max-width: 1200px) {
+    h2{
+        font-size: 16px;
+    }
+    h3{
+        font-size: 15px;
+    }
+}
 
 @media only screen and (max-width: 850px) {
     h2{

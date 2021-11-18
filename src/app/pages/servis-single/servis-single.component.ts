@@ -20,6 +20,10 @@ export class ServisSingleComponent implements OnInit {
   this.service.getServis(this.id).subscribe(
     res=> {
       this.single = res;
+      console.log("a", this.single.body)
+      var myJSONString = JSON.stringify(this.single.body);
+      var myEscapedJSONString = this.single.body.replace("\n", "\\n")
+      console.log(myEscapedJSONString)
     }
   )
 

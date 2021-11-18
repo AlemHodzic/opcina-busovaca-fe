@@ -27,6 +27,6 @@ export class SideNewsComponent implements OnInit {
     }, 100);
   }
   openAll(){
-    this.router.navigate(['/aktuelnosti'])
+    this.router.navigate(['/aktuelnosti/page/1'])
   }
 }

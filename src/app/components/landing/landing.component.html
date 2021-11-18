@@ -39,7 +39,7 @@
 <div class="news-titles-container">
   <div class="inner-titles-container">
     <h2>Izdvojeni članci</h2>
-    <h3>Sve novosti</h3>
+    <a href="/aktuelnosti/page/1">Sve novosti</a>
   </div>
   
 </div>
@@ -47,11 +47,14 @@
     	<div class="inner-news-container">
         
           <div class="news-box" *ngFor="let newsItem of news" (click)="openArticle(newsItem._id)">
-            <img src="{{newsItem.selectedFile}}" alt="" >
+            <div class="news-img-container">
+              <img src="{{newsItem.selectedFile}}" alt="" >
+            </div>
+       
             <div class="inner-news-box">
               <p class="newsSubTitle">{{newsItem.subTitle}}</p>
               <h3>{{newsItem.title}}</h3>
-              <p class="newsDate">Datum objave: 29.03.2021</p>
+              <p class="newsDate">Datum objave: {{newsItem.createdAt}}</p>
             </div>
     
           </div>

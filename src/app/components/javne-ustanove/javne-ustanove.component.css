@@ -45,7 +45,11 @@
     align-items: center;
     flex-direction: column;
 }
-
+.titles-container a{
+    text-decoration: none;
+    color: white;
+    text-decoration: underline;
+}
 @media only screen and (max-width: 1200px) {
     .single-ustanova{
         width: 44%;
@@ -70,6 +74,12 @@
 @media only screen and (max-width: 800px) {
     .inner-container{
         width: 90%;
+    }
+    .titles-container{
+        margin-bottom: 20px;
+    }
+    .titles-container h1{
+        margin-bottom: 8px;
     }
 
 }

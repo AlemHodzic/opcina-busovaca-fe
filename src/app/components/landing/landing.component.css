@@ -74,11 +74,13 @@ transform: translate3d(0,0,0);
     flex-direction: row;
     
 }
-.inner-titles-container h2, h3{
+.inner-titles-container h2, a{
     font-weight: 400;
+    color: rgb(70, 70, 70);
 }
 
-.inner-titles-container h3{
+.inner-titles-container a{
+    text-decoration: none;
     text-decoration: underline;
 }
 
@@ -175,7 +177,7 @@ transform: translate3d(0,0,0);
     .inner-titles-container h2{
         font-size: 17px;
     }
-    .inner-titles-container h3{
+    .inner-titles-container a{
         font-size: 17px;
     }
 }

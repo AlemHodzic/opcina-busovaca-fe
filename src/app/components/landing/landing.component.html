@@ -17,6 +17,23 @@
         </div>
       
       </div>
+     
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="slide">
+        <div class="inner-content-container">
+          <div class="inner-box">
+            <h3>Naslovna stranica</h3>
+              <h1>Općina Busovača</h1>
+              <p routerLink="/o-opcini/o-nama">Saznaj više</p>
+          </div>
+        </div>
+        <div class="img-container">
+          <img src="../../../assets/img/landing/main2.png" alt="">
+        </div>
+      
+      </div>
+     
     </ng-template>
     <ng-template carouselSlide *ngFor="let item of headerPosts">
       <div class="slide">
@@ -47,9 +64,9 @@
     	<div class="inner-news-container">
         
           <div class="news-box" *ngFor="let newsItem of news" (click)="openArticle(newsItem._id)">
-            <div class="news-img-container">
+          
               <img src="{{newsItem.selectedFile}}" alt="" >
-            </div>
+  
        
             <div class="inner-news-box">
               <p class="newsSubTitle">{{newsItem.subTitle}}</p>

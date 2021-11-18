@@ -16,6 +16,9 @@ body {
     font-family: 'Epilogue', sans-serif;
     overflow-x: hidden; 
 } 
+button{
+    font-family: 'Epilogue', sans-serif;
+}
 :after,:before{
     -webkit-box-sizing:border-box;
     box-sizing:border-box;

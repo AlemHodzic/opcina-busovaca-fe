@@ -30,7 +30,6 @@ i{
 }
 
 .content-container{
-
     width: 45%;
     min-height: 100vh;
     height: auto;
@@ -95,8 +94,23 @@ i{
 .newsDate{
     color: #606063;
 }
+.content-container h4{
+    color: #606063;
+}
 .newsSubTitle{
     color: #af7f1e;
+}
+
+
+
+.servisne-info-btn{
+    background-color: rgb(151, 2, 2);
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 8px;
 }
 
 table {

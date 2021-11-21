@@ -60,6 +60,11 @@ h3{
 	opacity: 0.95;
 	z-index: 999;
 }
+@media only screen and (max-width: 1600px) {
+    .news-box img{
+        width: 60%;
+    }
+}
 
 @media only screen and (max-width: 1200px) {
     h2{

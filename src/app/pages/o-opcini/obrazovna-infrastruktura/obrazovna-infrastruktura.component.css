@@ -60,7 +60,6 @@
 
 .content-container p{
     width: 95%;
-    text-align: justify;
     font-size: 15px;
 }
 
@@ -134,7 +133,7 @@ table {
   th {
     background-color: #087f5b;
     color: #fff;
-    width: 25%;
+
   }
 
   tbody tr:nth-child(odd){

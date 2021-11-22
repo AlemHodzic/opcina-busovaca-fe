@@ -46,7 +46,7 @@
 
 .content-container{
 
-    width: 45%;
+    width: 50%;
     min-height: 100vh;
     height: auto;
     border-right: 1px solid rgb(187, 187, 187);
@@ -127,14 +127,14 @@ table {
   
   th, td {
     /* border: 1px solid #343a40; */
-    padding: 16px 24px;
+    padding: 6px 8px;
     text-align: left;
   }
 
   th {
     background-color: #087f5b;
     color: #fff;
-    width: 25%;
+
   }
 
   tbody tr:nth-child(odd){

@@ -16,7 +16,7 @@ export class LandingComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     dots: true,
-    navSpeed: 1500,
+    navSpeed: 4000,
     autoplay: true,
     autoplayTimeout: 5000,
     autoplaySpeed: 1000,

@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.component';
 import { DokumentiZakComponent } from './pages/dokumenti-zakljuci/dokumenti-zak/dokumenti-zak.component';
 import { DocumentsComponent } from './pages/dokumenti/documents/documents.component';
 import { ObrasciComponent } from './pages/obrasci/obrasci.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'clanak/:id', component: SinglePostComponent },
   { path: 'servisne-informacije/:id', component: ServisSingleComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'film', component: DokumentaracComponent },
   { path: 'sluzbe-uprave', component: UpravaComponent },
   { path: 'vijecnici', component: VijeceComponent },
   { path: 'dokumenti', component: DocumentsComponent },

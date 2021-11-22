@@ -9,6 +9,7 @@ import { NacelnikComponent } from './nacelnik/nacelnik.component';
 import { NvoSektorComponent } from './nvo-sektor/nvo-sektor.component';
 import { ONamaComponent } from './o-nama/o-nama.component';
 import { ObrazovnaInfrastrukturaComponent } from './obrazovna-infrastruktura/obrazovna-infrastruktura.component';
+import { PrivredaComponent } from './privreda/privreda.component';
 import { SocioEkoComponent } from './socio-eko/socio-eko.component';
 import { SportComponent } from './sport/sport.component';
 import { TurizamComponent } from './turizam/turizam.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'obrazovna-i-socijalna-infrastruktura', component: ObrazovnaInfrastrukturaComponent},
   {path: 'sport', component: SportComponent},
   {path: 'nvo', component: NvoSektorComponent},
+  {path: 'privreda', component: PrivredaComponent},
   {path: 'mjesne-zajednice', component: MjesneZajedniceComponent},
  
 ];

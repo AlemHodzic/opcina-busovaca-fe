@@ -61,9 +61,16 @@
 .content-container p{
     font-size: 16px;
 }
+ul{
+    margin-left: 25px;
+}
+
 .nacelnik-title{
     margin-bottom: 20px;
     margin-top: 15px;
+}
+.contact-info i{
+    margin-right: 10px;
 }
 
 .content-container img{
@@ -205,6 +212,9 @@ table {
   
 }
 @media only screen and (max-width: 850px) {
+    ul{
+        margin-left: 5px;
+    }
     h2{
         font-size: 18px;
     }

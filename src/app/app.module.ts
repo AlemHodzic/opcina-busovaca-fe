@@ -38,6 +38,7 @@ import { DokumentiZakComponent } from './pages/dokumenti-zakljuci/dokumenti-zak/
 import { ServisSingleComponent } from './pages/servis-single/servis-single.component';
 import { RadnaTijelaComponent } from './pages/radna-tijela/radna-tijela.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
+import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { SinglePostComponent } from './components/single-post/single-post.compon
     DokumentiZakComponent,
     ServisSingleComponent,
     RadnaTijelaComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    DokumentaracComponent
   ],
   imports: [
     MatExpansionModule,

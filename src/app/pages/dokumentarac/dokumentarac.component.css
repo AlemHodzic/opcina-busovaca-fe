@@ -1,3 +1,4 @@
+
 .main-container{
     width: 100%;
     height: auto;
@@ -6,7 +7,8 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: row;
-}.links-container{
+}
+.links-container{
     width: 20%;
     height: 100vh;
     display: flex;
@@ -41,6 +43,7 @@
     transition: 0.2s;
     margin-left: 6px;
 }
+
 
 .content-container{
 
@@ -123,15 +126,14 @@ table {
   
   th, td {
     /* border: 1px solid #343a40; */
-    padding: 6px 10px;
+    padding: 16px 24px;
     text-align: left;
   }
 
   th {
     background-color: #087f5b;
     color: #fff;
-    width: 20%;
-
+    width: 25%;
   }
 
   tbody tr:nth-child(odd){
@@ -198,6 +200,8 @@ table {
     }
   
 }
+
+
 
 
 

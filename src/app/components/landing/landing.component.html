@@ -64,10 +64,10 @@
     	<div class="inner-news-container">
         
           <div class="news-box" *ngFor="let newsItem of news" (click)="openArticle(newsItem._id)">
-          
-              <img src="{{newsItem.selectedFile}}" alt="" >
-  
-       
+         
+            <img src="{{newsItem.selectedFile}}" alt="" >
+      
+            
             <div class="inner-news-box">
               <p class="newsSubTitle">{{newsItem.subTitle}}</p>
               <h3>{{newsItem.title}}</h3>

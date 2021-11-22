@@ -7,6 +7,9 @@
 	z-index: 999;
 }
 
+.content-container p{
+    font-size: 16.5px;
+}
 
 .main-container{
     width: 100%;
@@ -167,7 +170,7 @@
     }
     .content-container{
 
-        width: 90%;
+        width: 95%;
         min-height: 40vh;
         height: auto;
         border: none;

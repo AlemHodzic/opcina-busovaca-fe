@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -27,7 +27,7 @@ import { GlasnikComponent } from './pages/glasnik/glasnik.component';
 import { UpravaComponent } from './pages/uprava/uprava.component';
 import { VijeceComponent } from './pages/vijece/vijece.component';
 import { ObrasciComponent } from './pages/obrasci/obrasci.component';
-import { FotogalerijaComponent } from './pages/fotogalerija/fotogalerija.component';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -39,6 +39,16 @@ import { ServisSingleComponent } from './pages/servis-single/servis-single.compo
 import { RadnaTijelaComponent } from './pages/radna-tijela/radna-tijela.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
+
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json')
+}
+
+
 
 
 @NgModule({
@@ -55,7 +65,6 @@ import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.compone
     UpravaComponent,
     VijeceComponent,
     ObrasciComponent,
-    FotogalerijaComponent,
     ServisNabavkeComponent,
     DocumentsComponent,
     DokumentiZakComponent,
@@ -81,7 +90,15 @@ import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.compone
     MatListModule,
     SharedModule,
     MatProgressSpinnerModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    TranslateModule.forRoot({
+      defaultLanguage: 'bs',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

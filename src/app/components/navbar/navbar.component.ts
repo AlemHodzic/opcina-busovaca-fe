@@ -2,6 +2,8 @@ import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
+import { TranslateService } from '@ngx-translate/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +12,17 @@ import { LoaderService } from 'src/app/loader/loader.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document, private router: Router) {}
+  constructor(@Inject(DOCUMENT) private document: Document, private router: Router,  public translate: TranslateService, private fb: FormBuilder) {
+    translate.addLangs(['bs', 'hr']);
+    translate.setDefaultLang('bs');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/bs|hr/) ? browserLang : 'bs');
+  }
+  currentLanguage: any;
   test: number = window.innerHeight/9.5;
   toggle = [];
+  countryForm: FormGroup;
+  countries = ['bs', 'hr'] 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (document.body.scrollTop > this.test ||     
@@ -24,7 +34,26 @@ export class NavbarComponent implements OnInit {
       this.document.getElementById("filler").style.display = "none";
     }
   }
+
   ngOnInit(): void {
+    this.currentLanguage = localStorage.getItem('language');
+    console.log("oninit", this.currentLanguage)
+    if(this.currentLanguage == "bs"){
+      this.countryForm = this.fb.group({
+        countryControl: ['bs']
+      });
+      this.translate.use('bs')
+    }else if(this.currentLanguage == "hr"){
+      this.countryForm = this.fb.group({
+        countryControl: ['hr']
+      });
+      this.translate.use('hr')
+    }else{
+      this.countryForm = this.fb.group({
+        countryControl: ['bs']
+      });
+      this.translate.use('bs')
+    }
   }
   openNav() {
     document.getElementById("mySidebar").style.width = "300px";
@@ -32,5 +61,15 @@ export class NavbarComponent implements OnInit {
   closeNav() {
     document.getElementById("mySidebar").style.width = "0";
   }
-
+  /*selectLanguage(event: any){
+    this.translate.use(event.target.value)
+    localStorage.setItem('language', this.translate.currentLang)
+    console.log(this.translate.currentLang)
+  }*/
+  selectLanguage(event: any){
+    console.log(event)
+    this.translate.use(event)
+    localStorage.clear();
+    localStorage.setItem('language', event)
+  }
 }

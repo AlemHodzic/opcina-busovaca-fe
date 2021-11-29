@@ -21,6 +21,10 @@ const routes: Routes = [
     path: 'admin', loadChildren: () => import('./admin-module/admin/admin.module')
       .then(mod => mod.AdminModule), canActivate: [AuthGuard]
   },
+  {
+    path: 'fotogalerija', loadChildren: () => import('./pages/fotogalerija/fotogalerija.module')
+      .then(mod => mod.FotogalerijaModule)
+  },
   { path: 'clanak/:id', component: SinglePostComponent },
   { path: 'servisne-informacije/:id', component: ServisSingleComponent },
   { path: 'login', component: LoginComponent },

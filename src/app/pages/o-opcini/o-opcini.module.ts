@@ -18,6 +18,7 @@ import { NvoSektorComponent } from './nvo-sektor/nvo-sektor.component';
 import { MjesneZajedniceComponent } from './mjesne-zajednice/mjesne-zajednice.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {IvyGalleryModule} from 'angular-gallery';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {IvyGalleryModule} from 'angular-gallery';
     MatExpansionModule,
     CommonModule,
     OOpciniRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class OOpciniModule { }

@@ -22,6 +22,8 @@
     "@angular/platform-browser": "~12.2.10",
     "@angular/platform-browser-dynamic": "~12.2.10",
     "@angular/router": "~12.2.10",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
     "angular-gallery": "^1.0.2",
     "angularx-social-login": "^4.0.1",
     "filebase": "0.0.1",

@@ -30,8 +30,8 @@
 
     <div class="content-container">
     
-           <button class="servisne-info-btn" *ngIf="single.type=='poziv'">JAVNI POZIV</button>
-           <button class="servisne-info-btn" *ngIf="single.type=='nabavke'">JAVNE NABAVKE</button>
+           <button class="servisne-info-btn" *ngIf="single?.type=='poziv'">JAVNI POZIV</button>
+           <button class="servisne-info-btn" *ngIf="single?.type=='nabavke'">JAVNE NABAVKE</button>
            <h2>{{single?.title}}</h2>
            <h4 class="newsDate">{{single?.createdAt}}</h4>
 
@@ -44,7 +44,12 @@
         <div class="datoteke" *ngIf="single.selectedFile">
             <hr style="width: 95%; margin-bottom: 10px;">
             <h4>Priložene datoteke: </h4>
-            <a class="dl" (click)="downloadBase64Data(single.selectedFile, single.title)">{{single?.title + '.pdf'}} <i class="fa fa-download"></i></a>
+            <ng-container *ngFor="let link of single.selectedFile">
+                <a class="dl" (click)="downloadBase64Data(link.file, link.name)">{{link?.name}} <i class="fa fa-download"></i></a>
+                <br><br>
+            </ng-container>
+         
+           
          
         </div>
      

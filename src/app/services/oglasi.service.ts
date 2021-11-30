@@ -8,7 +8,7 @@ export class OglasiService {
   constructor(private http: HttpClient) {
   }
  //url = 'https://busovaca-api.herokuapp.com/servisi'
- url = 'https://busovaca-api.herokuapp.com/oglasi'
+ url = 'http://localhost:5000/oglasi'
  getOglasi(page){
    return this.http.get(`${this.url}/getOglasi?page=${page}`)
  }

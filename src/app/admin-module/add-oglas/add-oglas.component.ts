@@ -1,18 +1,23 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { OglasiService } from 'src/app/services/oglasi.service';
 
+interface imageObject {
+  name: string,
+  file: string
+}
 
 @Component({
   selector: 'app-add-oglas',
   templateUrl: './add-oglas.component.html',
   styleUrls: ['./add-oglas.component.css']
 })
+
 export class AddOglasComponent implements OnInit {
 
- 
-  uploadedImg: any;
+
+  uploadedImg: any[] = [];
   formdata: any;
   post: any;
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: OglasiService) { }
@@ -20,29 +25,37 @@ export class AddOglasComponent implements OnInit {
   ngOnInit(): void {
     this.formdata = new FormGroup({
       title: new FormControl(""),
-      body:  new FormControl(""),
-      selectedFile:  new FormControl(""),
+      body: new FormControl(""),
+      selectedFile: new FormControl(""),
       type: new FormControl("")
-   });
+    });
   }
-  closeDialog(){
+  closeDialog() {
     this.dialog.closeAll();
   }
 
   handleUpload(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-        this.uploadedImg = reader.result;
-    };
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      
+      const file = event.target.files[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        let addedImg: imageObject = {name: file.name, file: reader.result as string}
+        this.uploadedImg.push(addedImg)
+
+      };
+    }
+
   }
 
-onClickSubmit(data) { 
-  data.selectedFile = this.uploadedImg; 
-  this.service.createOglas(data);
-  //this.service.createPost(data)
-}
+  onClickSubmit(data) {
+    console.log(this.uploadedImg)
+    data.selectedFile = this.uploadedImg;
+    this.service.createOglas(data);
+    //this.service.createPost(data)
+  }
 
 }
 

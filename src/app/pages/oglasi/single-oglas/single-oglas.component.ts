@@ -21,6 +21,7 @@ export class SingleOglasComponent implements OnInit {
   this.service.getOglas(this.id).subscribe(
     res=> {
       this.single = res;
+      console.log(this.single.selectedFile)
     }
   )
 

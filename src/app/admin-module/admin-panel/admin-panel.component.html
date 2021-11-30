@@ -78,7 +78,31 @@
 
         </div>
     </mat-tab>
-    <mat-tab label="Third">Content 3</mat-tab>
+    <mat-tab label="FOTOGALERIJA">
+        <div class="bt-container">
+            <button (click)="addFoto()" class="dodajNovost">Dodaj fotografiju u galeriju</button>
+        </div>
+        <div class="content-container">
+            <div *ngIf="!loadedGallery" class="loader"></div>
+            <div class="card" *ngFor="let photo of photos">
+                <img src="{{photo.selectedFile}}" alt="Thumbnail" class="thumbnail">
+                <div class="content">
+                    <button (click)="deletePhoto(photo._id)" type="button" class="btn btn-outline-dark"><i
+                        class="fa fa-trash"></i></button>
+                </div>
+              </div>
+              <div class="pagination-container">
+                <ul class="pagination">
+                    <li><a (click)="previousPageGallery()" class="prev">
+                            < Nazad </a>
+                    </li>
+                    <li><a (click)="nextPageGallery()" class="next">Sljedeća ></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </mat-tab>
 </mat-tab-group>
 
 

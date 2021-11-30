@@ -13,6 +13,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { AddNovostComponent } from '../add-novost/add-novost.component';
 import { AddServisComponent } from '../add-servis/add-servis.component';
 import { EditServisComponent } from '../edit-servis/edit-servis.component';
+import { AddFotoComponent } from '../add-foto/add-foto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditServisComponent } from '../edit-servis/edit-servis.component';
     AddNovostComponent,
     EditDialogComponent,
     AddServisComponent, 
-    EditServisComponent
+    EditServisComponent,
+    AddFotoComponent
 
   ],
   imports: [

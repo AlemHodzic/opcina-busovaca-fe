@@ -10,6 +10,8 @@ import { ServisServiceService } from 'src/app/services/servis-service.service';
 import { AddNovostComponent } from '../add-novost/add-novost.component';
 import { AddServisComponent } from '../add-servis/add-servis.component';
 import { EditServisComponent } from '../edit-servis/edit-servis.component';
+import { AddFotoComponent } from '../add-foto/add-foto.component';
+import { GalleryService } from 'src/app/services/gallery.service';
 
 
 @Component({
@@ -28,7 +30,7 @@ export class AdminPanelComponent implements OnInit {
     tags: [String],
     selectedFile: String,
   }
-  constructor(private servisService: ServisServiceService, private service: PostServiceService, public dialog: MatDialog, public auth: AngularFireAuth, private router: Router,  private formBuilder: FormBuilder) {
+  constructor(private photoService: GalleryService, private servisService: ServisServiceService, private service: PostServiceService, public dialog: MatDialog, public auth: AngularFireAuth, private router: Router,  private formBuilder: FormBuilder) {
 
    }
 
@@ -42,12 +44,16 @@ export class AdminPanelComponent implements OnInit {
 
   page: number = 1;
   pageServis: number = 1;
+  pageGallery: number=1;
   loaded: boolean = false;
+  loadedGallery: boolean = false;
   loadedServisneInfo: boolean = false;
   filteredNews: any[] = [];
   servisneInformacije: any[] = [];
+  photos: any[] = [];
   noResult: boolean = false;
   noResultServis: boolean = false;
+  noResultGallery: boolean = false;
   ngOnInit(): void {
     this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
@@ -68,6 +74,12 @@ export class AdminPanelComponent implements OnInit {
       
       }
     );
+    this.photoService.getPhotos(this.pageGallery).subscribe(
+      res=> {
+        this.photos = res as [];
+        this.loadedGallery = true;
+      }
+    )
     this.formdata = new FormGroup({
       title: new FormControl(""),
       subTitle: new FormControl(""),
@@ -79,6 +91,9 @@ export class AdminPanelComponent implements OnInit {
   }
   addNovost(){
     this.dialog.open(AddNovostComponent)
+  }
+  addFoto(){
+    this.dialog.open(AddFotoComponent)
   }
   addServis(){
     this.dialog.open(AddServisComponent)
@@ -111,8 +126,17 @@ export class AdminPanelComponent implements OnInit {
       }, 500);
     }
  }
+ deletePhoto(id){
+  const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovu fotografiju iz galerije?");
+  if(answer){
+    this.photoService.deletePhoto(id);
+    setTimeout(() => {
+      location.reload();
+    }, 500);
+  }
+}
  deleteServis(id){
-  const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovaj servis?");
+  const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovu servisnu informaciju?");
   if(answer){
     this.servisService.deleteServis(id)
   }
@@ -208,6 +232,42 @@ export class AdminPanelComponent implements OnInit {
     )
   }
 
+  nextPageGallery(){
+    this.noResultGallery = false;
+    this.pageGallery++;
+    this.loadedGallery = false;
+    this.photos = [];
+    this.photoService.getPhotos(this.pageGallery).subscribe(
+      res=> {
+        this.photos = res as [];
+        if(this.photos.length == 0){
+          this.previousPageGallery();
+          this.loadedGallery = false;
+          alert("Nema rezultata.")
+        }else{
+          this.loadedGallery = true;
+        }
+        
+      }
+    )
+  }
+  previousPageGallery(){
+    this.noResultGallery = false;
+    if(this.pageGallery <= 1){
+      console.log("error")
+    }
+    else{
+      this.loadedGallery = false;
+      this.photos = [];
+      this.pageGallery -= 1;
+      this.photoService.getPhotos(this.pageGallery).subscribe(
+        res=> {
+          this.photos = res as [];
+          this.loadedGallery = true;
+        }
+      )
+    }
+  }
 
   onSubmit(){
     this.noResult = false;

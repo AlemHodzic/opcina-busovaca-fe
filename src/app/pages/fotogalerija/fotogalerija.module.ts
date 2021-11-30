@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FotogalerijaRoutingModule } from './fotogalerija-routing.module';
 import { FotogalerijaComponent } from './fotogalerija.component';
 import { SharedModule } from 'src/app/shared-modules/shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -15,7 +16,7 @@ import { SharedModule } from 'src/app/shared-modules/shared/shared.module';
     CommonModule,
     FotogalerijaRoutingModule,
     SharedModule,
-
+    TranslateModule
   ]
 })
 export class FotogalerijaModule { }

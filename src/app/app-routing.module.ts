@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'fotogalerija', loadChildren: () => import('./pages/fotogalerija/fotogalerija.module')
       .then(mod => mod.FotogalerijaModule)
   },
+  {
+    path: 'javni-oglasi', loadChildren: () => import('./pages/oglasi/oglas-module/oglas-module.module')
+      .then(mod => mod.OglasModuleModule)
+  },
   { path: 'clanak/:id', component: SinglePostComponent },
   { path: 'servisne-informacije/:id', component: ServisSingleComponent },
   { path: 'login', component: LoginComponent },

@@ -1,0 +1,61 @@
+<div class="main-container">
+    <div class="links-container">
+        <h2>Vezani linkovi:</h2>
+        <a href="/o-opcini/opcinski-nacelnik">Općinski načelnik<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/vijecnici">Općinski vijećnici<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/">Službeni glasnik<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/sluzbe-uprave">Službe uprave<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/aktuelnosti/page/1">{{ 'aktuelnosti_naslov' | translate }}<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/dokumenti">Dokumenti<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/dokumenti-i-zakljucci">Dokumenti i zaključci OV<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/radna-tijela-povjerenstva">{{ 'radna_tijela' | translate }}<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/obrasci">Obrasci<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+        <a href="/fotogalerija">Fotogalerija<i class="fa fa-angle-right"></i></a>
+        <hr class="horiz-line" style="width: 95%;">
+    </div>
+
+
+
+
+
+
+    <div class="content-container">
+    
+           <button class="servisne-info-btn" *ngIf="single.type=='poziv'">JAVNI POZIV</button>
+           <button class="servisne-info-btn" *ngIf="single.type=='nabavke'">JAVNE NABAVKE</button>
+           <h2>{{single?.title}}</h2>
+           <h4 class="newsDate">{{single?.createdAt}}</h4>
+
+      
+        <br>
+        <br>
+        <div class="body-container" style="white-space: pre-line"><p>{{single?.body}}</p></div>
+        <br>
+      
+        <div class="datoteke" *ngIf="single.selectedFile">
+            <hr style="width: 95%; margin-bottom: 10px;">
+            <h4>Priložene datoteke: </h4>
+            <a class="dl" (click)="downloadBase64Data(single.selectedFile, single.title)">{{single?.title + '.pdf'}} <i class="fa fa-download"></i></a>
+         
+        </div>
+     
+          </div>
+
+
+    <div class="other-articles-container">
+        <app-side-news></app-side-news>
+    </div>
+    
+
+
+</div>
+

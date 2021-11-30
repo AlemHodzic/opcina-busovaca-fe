@@ -12,6 +12,8 @@ import { AddServisComponent } from '../add-servis/add-servis.component';
 import { EditServisComponent } from '../edit-servis/edit-servis.component';
 import { AddFotoComponent } from '../add-foto/add-foto.component';
 import { GalleryService } from 'src/app/services/gallery.service';
+import { AddOglasComponent } from '../add-oglas/add-oglas.component';
+import { OglasiService } from 'src/app/services/oglasi.service';
 
 
 @Component({
@@ -30,7 +32,7 @@ export class AdminPanelComponent implements OnInit {
     tags: [String],
     selectedFile: String,
   }
-  constructor(private photoService: GalleryService, private servisService: ServisServiceService, private service: PostServiceService, public dialog: MatDialog, public auth: AngularFireAuth, private router: Router,  private formBuilder: FormBuilder) {
+  constructor(private oglasService: OglasiService,private photoService: GalleryService, private servisService: ServisServiceService, private service: PostServiceService, public dialog: MatDialog, public auth: AngularFireAuth, private router: Router,  private formBuilder: FormBuilder) {
 
    }
 
@@ -40,20 +42,27 @@ export class AdminPanelComponent implements OnInit {
   searchFormServis = this.formBuilder.group({
     searchBox: ''
   });
+  searchFormOglas = this.formBuilder.group({
+    searchBox: ''
+  });
   warning: boolean = false;
 
   page: number = 1;
   pageServis: number = 1;
-  pageGallery: number=1;
+  pageGallery: number = 1;
+  pageOglas: number = 1;
+  loadedOglasi: boolean = false;
   loaded: boolean = false;
   loadedGallery: boolean = false;
   loadedServisneInfo: boolean = false;
   filteredNews: any[] = [];
   servisneInformacije: any[] = [];
   photos: any[] = [];
+  oglasi: any[]=[];
   noResult: boolean = false;
   noResultServis: boolean = false;
   noResultGallery: boolean = false;
+  noResultOglas: boolean = false;
   ngOnInit(): void {
     this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
@@ -80,6 +89,13 @@ export class AdminPanelComponent implements OnInit {
         this.loadedGallery = true;
       }
     )
+    this.oglasService.getOglasi(this.pageOglas).subscribe(
+      res=>{
+        this.oglasi = res as [];
+        console.log(this.oglasi)
+        this.loadedOglasi = true;
+      }
+    )
     this.formdata = new FormGroup({
       title: new FormControl(""),
       subTitle: new FormControl(""),
@@ -97,6 +113,9 @@ export class AdminPanelComponent implements OnInit {
   }
   addServis(){
     this.dialog.open(AddServisComponent)
+  }
+  addOglas(){
+    this.dialog.open(AddOglasComponent)
   }
   handleUpload(event) {
     const file = event.target.files[0];
@@ -139,6 +158,12 @@ export class AdminPanelComponent implements OnInit {
   const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovu servisnu informaciju?");
   if(answer){
     this.servisService.deleteServis(id)
+  }
+ }
+ deleteOglas(id){
+  const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovaj javni oglas?");
+  if(answer){
+    this.oglasService.deleteOglas(id)
   }
  }
  editServis(item){
@@ -291,7 +316,7 @@ export class AdminPanelComponent implements OnInit {
     }
   }
   onSubmitServis(){
-    this.noResult = false;
+    this.noResultServis = false;
     if(this.searchFormServis.value.searchBox.length < 4){
       this.warning = true;
     }else{
@@ -326,11 +351,13 @@ export class AdminPanelComponent implements OnInit {
     )
     }
   }
+
+
   onSearchChangeServis(e){
     if(e == ''){
-      this.noResult = false;
-      this.filteredNews = [];
-      this.loaded = false;
+      this.noResultServis = false;
+      this.servisneInformacije = [];
+      this.loadedServisneInfo = false;
       this.pageServis = 1;
       this.servisService.getServisneInformacije(this.pageServis).subscribe(
         res=> {
@@ -339,6 +366,81 @@ export class AdminPanelComponent implements OnInit {
         }
       )
       }
+  }
+
+  onSubmitOglas(){
+    this.noResultOglas = false;
+    if(this.searchFormOglas.value.searchBox.length < 4){
+      this.warning = true;
+    }else{
+      this.loadedOglasi = false;
+      this.oglasi = [];
+      this.warning = false;
+      this.oglasService.searchByName(this.searchFormOglas.value.searchBox).subscribe(
+        res=> {
+          console.log(res)
+          this.oglasi = res as [];
+          if(this.oglasi.length == 0){
+            this.noResultOglas = true;
+          }else{
+            this.noResultOglas = false;
+          }
+          this.loadedOglasi = true;
+        }
+      )
+    }
+  }
+  onSearchChangeOglas(e){
+    if(e == ''){
+      this.noResultOglas = false;
+      this.oglasi = [];
+      this.loadedOglasi = false;
+      this.pageOglas = 1;
+      this.oglasService.getOglasi(this.pageServis).subscribe(
+        res=> {
+          this.oglasi = res as [];
+          this.loadedOglasi = true;
+        }
+      )
+      }
+  }
+
+  previousPageOglas(){
+    this.noResultOglas = false;
+    if(this.pageOglas <= 1){
+      console.log("error")
+    }
+    else{
+      this.loadedOglasi = false;
+      this.oglasi = [];
+      this.pageOglas -= 1;
+      this.oglasService.getOglasi(this.pageOglas).subscribe(
+        res=> {
+          this.oglasi = res as [];
+          this.loadedOglasi = true;
+        }
+      )
+    }
+  }
+
+  nextPageOglas(){
+    this.noResultOglas = false;
+    this.pageOglas++;
+    this.loadedOglasi = false;
+    this.oglasi = [];
+    this.oglasService.getOglasi(this.pageOglas).subscribe(
+      res=> {
+        this.oglasi = res as [];
+        if(this.oglasi.length == 0){
+          this.previousPageOglas();
+          this.loadedOglasi = false;
+          alert("Nema rezultata.")
+        }else{
+          this.loadedOglasi = true;
+        }
+        
+      }
+    )
   }
 
 

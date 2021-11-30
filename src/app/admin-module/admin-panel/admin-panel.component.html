@@ -103,6 +103,47 @@
 
 
     </mat-tab>
+    <mat-tab label="JAVNI OGLASI">
+        <div class="bt-container">
+            <button (click)="addOglas()" class="dodajNovost">Dodaj javni oglas</button>
+        </div>
+
+        <div class="content-container">
+            <form action="" [formGroup]="searchFormOglas" (ngSubmit)="onSubmitOglas()">
+                <input (input)="onSearchChangeOglas($event.target.value)" formControlName="searchBox" type="text"
+                    placeholder="Pretraga javnih oglasa..." name="search" minlength="4">
+                <button type="submit">Traži</button>
+            </form>
+            <p *ngIf="warning">Unesite više od 4 karaktera.</p>
+           
+                <div *ngIf="!loadedOglasi" class="loader"></div>
+            
+                <p *ngIf="noResultOglas">Nema rezultata pretrage.</p>
+            <div class="servisne-info-container">
+                <div class="servis-item" *ngFor="let item of oglasi">
+                    <p *ngIf="item.type == 'poziv'" style="color: #9c6b08;">Javni poziv</p>
+                    <p *ngIf="item.type == 'nabavke'" style="color: #6e0505;">Javne nabavke</p>
+                    <p>{{item.title}}</p>
+                    <p>{{item.createdAt}}</p>
+                 
+                  
+                <button (click)="deleteOglas(item._id)" type="button" class="btn btn-outline-dark"><i
+                        class="fa fa-trash"></i></button>
+                </div>
+               
+            </div>
+            <div class="pagination-container">
+                <ul class="pagination">
+                    <li><a (click)="previousPageOglas()" class="prev">
+                            < Nazad </a>
+                    </li>
+                    <li><a (click)="nextPageOglas()" class="next">Sljedeća ></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </mat-tab>
 </mat-tab-group>
 
 

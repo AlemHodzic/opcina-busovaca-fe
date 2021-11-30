@@ -1,0 +1,39 @@
+<div class="modal-container">
+    <div class="form-container">
+        <div class="top-form">
+            <h1>Dodavanje javnog oglasa</h1>
+        </div>
+    
+        <div class="contact-container">
+    
+          <div class="contact-description">
+              <form class="contact-form" [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
+                  <input
+                  type="text"  placeholder="Naslov" name="title" tabindex="1" formControlName="title" 
+                  />
+                  <textarea placeholder="Tekst/sadržaj" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
+
+              
+                  
+                  <input type="radio" id="poziv" formControlName="type" name="type" value="poziv">
+                  <label for="poziv">Javni poziv</label><br><br>
+                  <input type="radio" id="nabavke" formControlName="type" name="type" value="nabavke">
+                  <label for="nabavke">Javne nabavke</label><br>
+    
+                  <br><br>
+                  <label>Dokument:</label><br><br>
+                  <input type="file"
+                  (change)="handleUpload($event)" placeholder="slika" name="selectedFile" tabindex="2" formControlName="selectedFile"
+                  />
+                  <br><br>
+                  <div class="btn-container">
+                    <button class="close-btn" value="CLOSE" type="button" (click)="closeDialog()">Zatvori</button>
+                    <button class="send-btn" type="submit" value="Send">Dodaj</button>
+                  </div> 
+              </form>
+           
+          </div>
+    
+      </div>
+    </div>
+</div>

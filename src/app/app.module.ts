@@ -45,6 +45,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
+
+
+
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
 }
@@ -73,6 +76,8 @@ export function HttpLoaderFactory(http: HttpClient){
     RadnaTijelaComponent,
     SinglePostComponent,
     DokumentaracComponent,
+
+
   ],
   imports: [
     MatExpansionModule,

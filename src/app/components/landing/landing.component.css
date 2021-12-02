@@ -209,6 +209,16 @@ transform: translate3d(0,0,0);
     .inner-titles-container a{
         font-size: 14px;
     }
+    .img-container img{
+        height: auto;
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit:fill;
+        object-position: center;
+    }
+    .slide{
+        height: auto;
+    }
 }
 @media only screen and (max-width: 650px) {
  
@@ -240,4 +250,15 @@ transform: translate3d(0,0,0);
     .inner-news-box p{
         font-size: 11px;
     }
+    .img-container img{
+        height: auto;
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit:fill;
+        object-position: center;
+    }
+    .slide{
+        height: auto;
+    }
+    
 }

@@ -41,6 +41,7 @@ import { SinglePostComponent } from './components/single-post/single-post.compon
 import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
 
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient){
     RadnaTijelaComponent,
     SinglePostComponent,
     DokumentaracComponent,
+    ContactFormComponent,
 
 
   ],

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactFormComponent } from '../contact-form/contact-form.component';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +14,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document, private router: Router,  public translate: TranslateService, private fb: FormBuilder) {
+  constructor(@Inject(DOCUMENT) private document: Document, private router: Router,  public translate: TranslateService, private fb: FormBuilder, public dialog: MatDialog) {
     translate.addLangs(['bs', 'hr']);
     translate.setDefaultLang('bs');
     const browserLang = translate.getBrowserLang();
@@ -60,6 +62,9 @@ export class NavbarComponent implements OnInit {
   }
   closeNav() {
     document.getElementById("mySidebar").style.width = "0";
+  }
+  openContact(){
+    this.dialog.open(ContactFormComponent)
   }
   /*selectLanguage(event: any){
     this.translate.use(event.target.value)

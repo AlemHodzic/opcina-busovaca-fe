@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from 'src/app/services/gallery.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import {Gallery} from 'angular-gallery';
 
+interface ImgURL {
+  path: string
+}
 
 @Component({
   selector: 'app-fotogalerija',
@@ -10,21 +14,37 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class FotogalerijaComponent implements OnInit {
 
-  constructor(public service: GalleryService, private sanitizer: DomSanitizer) { }
+  constructor(public service: GalleryService, private sanitizer: DomSanitizer, private gallery: Gallery) { }
   photos: any[] = [];
+  i: number = 0;
   pageGallery: number = 1;
   noResultGallery: boolean = false;
   loadedGallery: boolean = false;
+  galleryURLs: any[] = [];
   ngOnInit(): void {
     this.service.getPhotos(this.pageGallery).subscribe(
       res => {
         this.photos = res as [];
         this.loadedGallery = true;
+        for(let i=0; i<this.photos.length; i++){
+          let imgUrl: ImgURL = {path: this.photos[i].selectedFile}
+          this.galleryURLs.push(imgUrl);
+        }
       }
     )
 
 
   }
+
+
+  showGallery(index: number) {
+    let prop = {
+        images: this.galleryURLs,
+        index 
+    };
+    this.gallery.load(prop);
+}
+
   nextPageGallery() {
     this.noResultGallery = false;
     this.pageGallery++;
@@ -38,7 +58,12 @@ export class FotogalerijaComponent implements OnInit {
           this.loadedGallery = false;
           alert("Nema rezultata.")
         } else {
+          this.galleryURLs = [];
           this.loadedGallery = true;
+          for(let i=0; i<this.photos.length; i++){
+            let imgUrl: ImgURL = {path: this.photos[i].selectedFile}
+            this.galleryURLs.push(imgUrl);
+          }
         }
 
       }
@@ -50,6 +75,7 @@ export class FotogalerijaComponent implements OnInit {
       console.log("error")
     }
     else {
+      this.galleryURLs = [];
       this.loadedGallery = false;
       this.photos = [];
       this.pageGallery -= 1;
@@ -57,16 +83,16 @@ export class FotogalerijaComponent implements OnInit {
         res => {
           this.photos = res as [];
           this.loadedGallery = true;
+          for(let i=0; i<this.photos.length; i++){
+            let imgUrl: ImgURL = {path: this.photos[i].selectedFile}
+            this.galleryURLs.push(imgUrl);
+          }
         }
       )
     }
   }
-  imagePath: any;
-  openImg(src: any) {
 
-    console.log(src)
 
-  }
 }
 
 

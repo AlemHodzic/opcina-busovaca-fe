@@ -19,6 +19,9 @@ import { MjesneZajedniceComponent } from './mjesne-zajednice/mjesne-zajednice.co
 import {MatExpansionModule} from '@angular/material/expansion';
 import {IvyGalleryModule} from 'angular-gallery';
 import { TranslateModule } from '@ngx-translate/core';
+import { NabavkeComponent } from './nabavke/nabavke.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -36,6 +39,7 @@ import { TranslateModule } from '@ngx-translate/core';
     SportComponent,
     NvoSektorComponent,
     MjesneZajedniceComponent,
+    NabavkeComponent,
 
   ],
   imports: [
@@ -44,7 +48,10 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     OOpciniRoutingModule,
     SharedModule,
-    TranslateModule
+    TranslateModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    FormsModule,
   ]
 })
 export class OOpciniModule { }

@@ -32,11 +32,11 @@
         <br>
         <div *ngIf="!loadedGallery" class="loader"></div>
         <div class="photo-container">
-            <a download="{{photo._id}}" title="image" href="{{photo.selectedFile}}" class="card" *ngFor="let photo of photos">
+            <a title="image" class="card" *ngFor="let photo of photos; let i = index">
                 <div class="card-wrapper">
-                  <div class="hidden-cover"></div>
-                  <img src="{{photo.selectedFile}}" alt="Danish Nature"/>
-                  <h4>Preuzmi</h4>
+                 
+                  <img (click)="showGallery(i)" src="{{photo.selectedFile}}" alt="Danish Nature"/>
+                  
                 </div>
               </a>
               

@@ -3,13 +3,12 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { OglasiService } from 'src/app/services/oglasi.service';
-
 @Component({
-  selector: 'app-oglasi-page',
-  templateUrl: './oglasi-page.component.html',
-  styleUrls: ['./oglasi-page.component.scss']
+  selector: 'app-nabavke',
+  templateUrl: './nabavke.component.html',
+  styleUrls: ['./nabavke.component.scss']
 })
-export class OglasiPageComponent implements OnInit {
+export class NabavkeComponent implements OnInit {
 
   constructor(public service: OglasiService, private _Activatedroute:ActivatedRoute, private router: Router,  private formBuilder: FormBuilder, public loaderService: LoaderService) { }
   searchForm = this.formBuilder.group({
@@ -25,13 +24,13 @@ export class OglasiPageComponent implements OnInit {
     this._Activatedroute.paramMap.subscribe(params => { 
       this.number = +params.get('number'); 
   });
-    this.service.getOglasi(this.number).subscribe(
+    this.service.getNabavke(this.number).subscribe(
       res=> {
         window.scrollTo(0, 0);
         this.oglasi = res as [];
         if(this.oglasi.length == 0){
           this.number = 1;
-          this.router.navigate(['/javni-oglasi/page', this.number]).then(()=>{
+          this.router.navigate(['/o-opcini/javne-nabavke/page', this.number]).then(()=>{
             window.location.reload()
             
           }
@@ -56,7 +55,7 @@ export class OglasiPageComponent implements OnInit {
       this.number -= 1;
       //this.router.navigateByUrl(`/aktuelnosti/page/${this.number}`);
       
-      this.router.navigate(['/javni-oglasi/page', this.number]).then(()=>{
+      this.router.navigate(['/o-opcini/javne-nabavke/page', this.number]).then(()=>{
         window.location.reload()
         
       }
@@ -65,63 +64,13 @@ export class OglasiPageComponent implements OnInit {
     }
   }
 
-
   nextPage(){
     this.number++;
-    this.router.navigate(['/javni-oglasi/page', this.number]).then(()=>{
+    this.router.navigate(['/o-opcini/javne-nabavke/page', this.number]).then(()=>{
       window.location.reload()
       
     }
     )
-
-    /*this.service.getPaginatedPosts(this.page).subscribe(
-      res=> {
-        this.filteredNews = res as [];
-        if(this.filteredNews.length == 0){
-          this.previousPage();
-          this.loaded = false;
-          alert("Nema rezultata.")
-        }else{
-          this.loaded = true;
-        }
-        
-      }
-    ) */
-  }
-
-  onSubmit(){
-    this.noResult = false;
-    if(this.searchForm.value.searchBox.length < 4){
-      this.warning = true;
-    }else{
-      this.loaded = false;
-      this.oglasi = [];
-      this.warning = false;
-      this.service.searchByName(this.searchForm.value.searchBox).subscribe(
-        res=> {
-          this.oglasi = res as [];
-          if(this.oglasi.length == 0){
-            this.noResult = true;
-          }else{
-            this.noResult = false;
-          }
-          this.loaded = true;
-        }
-      )
-    }
-   
-  }
-
-  onSearchChange(e){
-    if(e == ''){
-    this.noResult = false;
-    this.oglasi = [];
-    this.loaded = false;
-    this.number = 1;
-    this.router.navigate(['/javni-oglasi/page', this.number]).then(()=>{
-      window.location.reload() 
-    })
-    }
   }
 
 }

@@ -7,11 +7,18 @@ import { Injectable } from '@angular/core';
 export class OglasiService {
   constructor(private http: HttpClient) {
   }
- //url = 'https://busovaca-api.herokuapp.com/servisi'
+ //url = 'https://busovaca-api.herokuapp.com/oglasi'
+ //local = 'http://localhost:5000/oglasi'
  url = 'https://busovaca-api.herokuapp.com/oglasi'
+
  getOglasi(page){
    return this.http.get(`${this.url}/getOglasi?page=${page}`)
  }
+
+
+ getNabavke(page){
+  return this.http.get(`${this.url}/getNabavke?page=${page}`)
+}
 
  createOglas(object){
    this.http.post(this.url, object).subscribe(

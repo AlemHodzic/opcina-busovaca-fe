@@ -5,6 +5,7 @@ import { HistorijatComponent } from './historijat/historijat.component';
 import { JavnaPredUstanoveComponent } from './javna-pred-ustanove/javna-pred-ustanove.component';
 import { KulturaComponent } from './kultura/kultura.component';
 import { MjesneZajedniceComponent } from './mjesne-zajednice/mjesne-zajednice.component';
+import { NabavkeComponent } from './nabavke/nabavke.component';
 import { NacelnikComponent } from './nacelnik/nacelnik.component';
 import { NvoSektorComponent } from './nvo-sektor/nvo-sektor.component';
 import { ONamaComponent } from './o-nama/o-nama.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'nvo', component: NvoSektorComponent},
   {path: 'privreda', component: PrivredaComponent},
   {path: 'mjesne-zajednice', component: MjesneZajedniceComponent},
+  {path: 'javne-nabavke/page/:number', component: NabavkeComponent},
  
 ];
 

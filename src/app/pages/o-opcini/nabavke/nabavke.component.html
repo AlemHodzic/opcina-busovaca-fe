@@ -1,0 +1,75 @@
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+  </div>
+  <div class="main-container1">
+    <div class="links-container">
+      <h2>Vezani linkovi:</h2>
+      <a href="/o-opcini/o-nama">O nama<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/historijat">{{ 'historijat_naslov' | translate }}<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/geografija-i-demografija">{{ 'geo_demo_naslov' | translate }}<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/socio-ekonomski-profit">Socio-ekonomski profil<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/opcinski-nacelnik">Općinski načelnik<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/javne-ustanove-i-preduzeca">{{ 'javna_naslov' | translate }}<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/turizam">Turizam<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/kultura">Kultura<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/privreda">{{ 'privreda_naslov' | translate }}<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/obrazovna-i-socijalna-infrastruktura">Obrazovna i socijalna infrastruktura<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/sport">{{ 'sport_naslov' | translate }}<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/nvo">NVO sektor<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/mjesne-zajednice">Mjesne zajednice<i class="fa fa-angle-right"></i></a>
+      <hr class="horiz-line" style="width: 95%;">
+      <a href="/o-opcini/javne-nabavke/page/1">Javne nabavke<i class="fa fa-angle-right"></i></a>
+  </div>
+  
+  
+  
+  
+  
+  
+      <div class="content-container1">
+          <h2>Javne nabavke</h2>
+          
+          <div class="container">
+              <ul class="l-news">
+                <li class="l-news__content p-news__content" *ngFor="let item of oglasi" [routerLink]="['/javni-oglasi/oglas', item._id]">
+                  <div class="content-container">
+            
+                    <div class="l-news__content__day p-news__content__day">{{item.createdAt}}</div>
+                    <div *ngIf="item.type=='nabavke'" class="l-news__content__label p-news__content__label disappear">JAVNE NABAVKE</div>
+                    <div class="l-news__content__text p-news__content__text">{{item.title}}</div>
+                  </div>
+                   
+                    <div class="arrow-container">></div>
+                </li>
+            </ul>
+            </div>
+            <div class="pagination-container">
+              <ul class="pagination">
+                  <li><a (click)="previousPage()" class="prev">< Nazad </a></li>
+                  <li><a (click)="nextPage()" class="next">Sljedeća ></a></li>
+                </ul>
+            </div>
+      </div>
+  
+  
+      <div class="other-articles-container">
+          <app-side-news></app-side-news>
+      </div>
+      
+  
+  
+  </div>
+  
+  

@@ -13,14 +13,22 @@ export class SingleOglasComponent implements OnInit {
   constructor(private _Activatedroute:ActivatedRoute, private service: OglasiService, private router: Router, public loaderService: LoaderService) { }
   single: any;
   id: any;
+  currentLanguage: any;
   ngOnInit(): void {
-
+    this.currentLanguage = localStorage.getItem('language');
     this._Activatedroute.paramMap.subscribe(params => { 
       this.id = params.get('id'); 
   });
   this.service.getOglas(this.id).subscribe(
     res=> {
       this.single = res;
+      if(this.currentLanguage == 'hr'){
+          this.single.title =  this.single.titleHR
+          this.single.subTitle =  this.single.subTitleHR
+          this.single.body =  this.single.bodyHR
+
+  
+      }
       console.log(this.single.selectedFile)
     }
   )

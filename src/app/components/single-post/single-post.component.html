@@ -33,7 +33,29 @@
         <div class="subTitle-container">
             <h4>{{object.subTitle}}</h4>
         </div>
-        <img src="{{object.selectedFile}}" alt="">
+        <div class="w3-content w3-display-container">
+            <div class="w3-display-container mySlides">
+                <img src="{{object.selectedFile}}">
+                <div class="w3-display-topright w3-small w3-container w3-padding-16 w3-black">
+                    {{slideIndex}}/{{imgs.length+1}}
+                </div>
+              </div>
+            <ng-container *ngFor="let img of imgs">
+                <div class="w3-display-container mySlides">
+                    <img src="{{img}}">
+                    <div class="w3-display-topright w3-small w3-container w3-padding-16 w3-black">
+                      {{slideIndex}}/{{imgs.length+1}}
+                    </div>
+                  </div>
+            </ng-container>
+      
+      
+      
+            <button class="w3-button w3-display-left w3-black" (click)="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-display-right w3-black" (click)="plusDivs(1)">&#10095;</button>
+      
+          </div>
+      
         <div class="inner-content-text">
             <h1>{{object.title}}</h1>
             <p class="dateAdded">{{dateCreated}}</p>

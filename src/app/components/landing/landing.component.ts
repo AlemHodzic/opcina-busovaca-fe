@@ -33,12 +33,26 @@ export class LandingComponent implements OnInit {
   allPosts: any[] = [];
   headerPosts: any[] = [];
   news: any[] = [];
+  currentLanguage: any;
   ngOnInit(): void {
-    this.service.getPosts().subscribe(
+    this.currentLanguage = localStorage.getItem('language');
+    this.service.getPostsWithNoImgs().subscribe(
+      res=>{
+        this.news = res as []
+        if(this.currentLanguage == 'hr'){
+          for(let i=0;i<this.news.length; i++){
+            this.news[i].title =  this.news[i].titleHR
+            this.news[i].subTitle =  this.news[i].subTitleHR
+          }
+    
+        }
+      }
+    )
+    /*this.service.getPosts().subscribe(
       res => {
         this.news = res as [];
       }
-    ); 
+    ); */
 
     this.service.getHeaderPosts().subscribe(
       res=> {

@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PostServiceService } from 'src/app/services/post-service.service';
@@ -11,9 +12,13 @@ export class EditDialogComponent implements OnInit {
   uploadedImg: any;
   formdata: any;
   post: any;
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: PostServiceService) { }
+  uid: any;
+  constructor(private authService: AngularFireAuth, public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: PostServiceService) { }
 
   ngOnInit(): void {
+    this.authService.user.subscribe(res=>{
+      this.uid = res.uid;
+    })
     this.formdata = new FormGroup({
       title: new FormControl(""),
       subTitle: new FormControl(""),
@@ -48,7 +53,7 @@ export class EditDialogComponent implements OnInit {
 onClickSubmit(data) {
   data.selectedFile = this.uploadedImg; 
   console.log(data);
-  this.service.updatePost(this.post._id, data)
+  this.service.updatePost(this.post._id, data, this.uid)
   //this.service.createPost(data)
 }
 

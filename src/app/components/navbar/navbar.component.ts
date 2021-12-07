@@ -76,5 +76,9 @@ export class NavbarComponent implements OnInit {
     this.translate.use(event)
     localStorage.clear();
     localStorage.setItem('language', event)
+    if(this.router.url.includes('clanak' || 'javni-oglasi')){
+      window.location.reload()
+    }
+
   }
 }

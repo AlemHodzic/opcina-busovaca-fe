@@ -21,14 +21,24 @@ export class OglasiPageComponent implements OnInit {
   page: number = 1;
   noResult: boolean = false;
   number: number = 1;
+  currentLanguage: any;
   ngOnInit(): void {
+    this.currentLanguage = localStorage.getItem('language');
     this._Activatedroute.paramMap.subscribe(params => { 
       this.number = +params.get('number'); 
   });
     this.service.getOglasi(this.number).subscribe(
       res=> {
+        
         window.scrollTo(0, 0);
         this.oglasi = res as [];
+        if(this.currentLanguage == 'hr'){
+          for(let i=0;i<this.oglasi.length; i++){
+            this.oglasi[i].title =  this.oglasi[i].titleHR
+            this.oglasi[i].subTitle =  this.oglasi[i].subTitleHR
+          }
+    
+        }
         if(this.oglasi.length == 0){
           this.number = 1;
           this.router.navigate(['/javni-oglasi/page', this.number]).then(()=>{
@@ -100,6 +110,13 @@ export class OglasiPageComponent implements OnInit {
       this.service.searchByName(this.searchForm.value.searchBox).subscribe(
         res=> {
           this.oglasi = res as [];
+          if(this.currentLanguage == 'hr'){
+            for(let i=0;i<this.oglasi.length; i++){
+              this.oglasi[i].title =  this.oglasi[i].titleHR
+              this.oglasi[i].subTitle =  this.oglasi[i].subTitleHR
+            }
+      
+          }
           if(this.oglasi.length == 0){
             this.noResult = true;
           }else{

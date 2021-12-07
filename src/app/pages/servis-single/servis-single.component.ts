@@ -13,17 +13,20 @@ export class ServisSingleComponent implements OnInit {
   constructor(private _Activatedroute:ActivatedRoute, private service: ServisServiceService, private router: Router, public loaderService: LoaderService) { }
   single: any;
   id: any;
+  currentLanguage: any;
   ngOnInit(): void {
+    this.currentLanguage = localStorage.getItem('language');
     this._Activatedroute.paramMap.subscribe(params => { 
       this.id = params.get('id'); 
   });
   this.service.getServis(this.id).subscribe(
     res=> {
       this.single = res;
-      console.log("a", this.single.body)
-      var myJSONString = JSON.stringify(this.single.body);
-      var myEscapedJSONString = this.single.body.replace("\n", "\\n")
-      console.log(myEscapedJSONString)
+      if(this.currentLanguage == 'hr'){
+        this.single.title =  this.single.titleHR
+        this.single.body =  this.single.bodyHR
+
+    }
     }
   )
 

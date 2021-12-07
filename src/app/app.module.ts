@@ -42,7 +42,7 @@ import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.compone
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
-
+import {APP_BASE_HREF} from '@angular/common';
 
 
 
@@ -109,7 +109,8 @@ export function HttpLoaderFactory(http: HttpClient){
     })
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+    {provide: APP_BASE_HREF, useValue: '/'}
   ],
   bootstrap: [AppComponent]
 })

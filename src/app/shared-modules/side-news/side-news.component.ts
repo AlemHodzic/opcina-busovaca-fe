@@ -14,11 +14,11 @@ export class SideNewsComponent implements OnInit {
   constructor(private service: PostServiceService, private router: Router, public loaderService: LoaderService) { }
   news: any[] = [];
   ngOnInit(): void {
-    this.service.getPosts().subscribe(
-      res => {
-        this.news = res as [];
+    this.service.getPostsWithNoImgs().subscribe(
+      res=>{
+        this.news = res as []
       }
-    ); 
+    )
   }
   openArticle(id){
     this.router.navigate(['/clanak', id])

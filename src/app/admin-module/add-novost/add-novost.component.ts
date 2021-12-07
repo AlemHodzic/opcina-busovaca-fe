@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PostServiceService } from 'src/app/services/post-service.service';
@@ -13,20 +14,46 @@ export class AddNovostComponent implements OnInit {
   uploadedImg: any;
   formdata: any;
   post: any;
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: PostServiceService) { }
+  uploadedImgs: any[] = [];
+  uid: any;
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: PostServiceService, private authService: AngularFireAuth) { }
 
   ngOnInit(): void {
+   this.authService.user.subscribe(res=>{
+      this.uid = res.uid;
+    })
     this.formdata = new FormGroup({
       title: new FormControl(""),
       subTitle: new FormControl(""),
       body:  new FormControl(""),
-      tags:  new FormControl(""),
+      titleHR: new FormControl(""),
+      subTitleHR: new FormControl(""),
+      bodyHR:  new FormControl(""),
       selectedFile:  new FormControl(""),
+      displayFile:  new FormControl(""),
       isHeader: new FormControl("")
    });
   }
   closeDialog(){
     this.dialog.closeAll();
+  }
+
+  
+  handleUploads(event) {
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      
+      const file = event.target.files[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.uploadedImgs.push(reader.result)
+        /*let addedImg: imageObject = {name: file.name, file: reader.result as string}
+        this.uploadedImg.push(addedImg) */
+
+      };
+    }
+
   }
 
   handleUpload(event) {
@@ -39,12 +66,16 @@ export class AddNovostComponent implements OnInit {
   }
 
 onClickSubmit(data) { 
+
+
   if(data.isHeader){
     data.isHeader = 1;
   }else{
     data.isHeader = 0;
   }
-  data.selectedFile = this.uploadedImg; 
+  data.selectedFile = this.uploadedImg;
+  data.displayFile = this.uploadedImgs;
+  data.uid = this.uid;
   this.service.createPost(data)
 }
 

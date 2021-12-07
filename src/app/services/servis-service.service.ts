@@ -8,7 +8,9 @@ export class ServisServiceService {
 
   constructor(private http: HttpClient) {
    }
-  url = 'https://busovaca-api.herokuapp.com/servisi'
+    url = 'https://busovaca-api.herokuapp.com/servisi'
+    //url = 'http://localhost:5000/servisi'
+
   getServisneInformacije(page){
     return this.http.get(`${this.url}/getServisi?page=${page}`)
   }

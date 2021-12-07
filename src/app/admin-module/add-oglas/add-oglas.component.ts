@@ -26,6 +26,8 @@ export class AddOglasComponent implements OnInit {
     this.formdata = new FormGroup({
       title: new FormControl(""),
       body: new FormControl(""),
+      titleHR: new FormControl(""),
+      bodyHR: new FormControl(""),
       selectedFile: new FormControl(""),
       type: new FormControl("")
     });

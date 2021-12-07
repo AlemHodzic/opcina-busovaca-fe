@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
    
    this.auth.signInWithEmailAndPassword(email, password).then(
      res=> {
-       this.router.navigateByUrl('admin/admin-panel')
+      this.router.navigateByUrl('admin/admin-panel')
      }
      
    )

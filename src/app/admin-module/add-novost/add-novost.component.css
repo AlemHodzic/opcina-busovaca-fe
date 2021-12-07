@@ -1,5 +1,5 @@
 .modal-container {
-	width: 60vw;
+	width: auto;
 	height: auto;
 	display: flex;
 	justify-content: center;
@@ -10,12 +10,17 @@
 	font-size: 4rem;
 }
 
+.single-row{
+	width: 100%;
+	display: flex;
+}
+
 .form-container {
 	margin-top: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 600px;
+	height: auto;
 	flex-direction: column;
 }
 

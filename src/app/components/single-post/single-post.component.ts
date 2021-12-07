@@ -12,9 +12,13 @@ export class SinglePostComponent implements OnInit {
 
   constructor(private _Activatedroute:ActivatedRoute, private service: PostServiceService, private router: Router, public loaderService: LoaderService) { }
   id: any;
+  slideIndex = 1;
   object: any;
   dateCreated: any;
+  currentLanguage: any;
+  imgs: any[] = [];
   ngOnInit(): void {
+    this.currentLanguage = localStorage.getItem('language');
     this._Activatedroute.paramMap.subscribe(params => { 
       this.id = params.get('id'); 
   });
@@ -22,6 +26,15 @@ export class SinglePostComponent implements OnInit {
   this.service.getPost(this.id).subscribe(
     res => {
       this.object = res;
+      if(this.currentLanguage == 'hr'){
+        this.object.title = this.object.titleHR
+        this.object.subTitle = this.object.subTitleHR
+        this.object.body = this.object.bodyHR
+      }
+      for(let i=0; i<this.object.displayFile.length; i++){
+        this.imgs.push(this.object.displayFile[i])
+      }
+      this.showDivs(this.slideIndex);
       this.dateCreated = this.object.createdAt;
       this.dateCreated = this.dateCreated.split('T')[0]
     }
@@ -29,7 +42,18 @@ export class SinglePostComponent implements OnInit {
 
 
   }
-
-
-
+  plusDivs(n) {
+    this.showDivs(this.slideIndex += n);
+  }
+  
+   showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
+    if (n > x.length) {this.slideIndex = 1}
+    if (n < 1) {this.slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    x[this.slideIndex-1].style.display = "block";  
+  }
 }

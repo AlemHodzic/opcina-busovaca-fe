@@ -8,15 +8,26 @@
     
           <div class="contact-description">
               <form class="contact-form" [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
-                  <input
-                  type="text"  placeholder="Naslov" name="title" tabindex="1" formControlName="title" 
-                  />
-                  <textarea placeholder="Tekst" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
+                <div class="single-row">
+                    <input
+                    type="text"  placeholder="Naslov BS" name="title" tabindex="1" formControlName="title" 
+                    />
+                    <input
+                    type="text"  placeholder="Naslov HR" name="title" tabindex="1" formControlName="titleHR" 
+                    />
+                </div>
+                <div class="single-row">
+                    <textarea placeholder="Tekst BS" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
+                    <textarea placeholder="Tekst HR" name="Message" tabindex="5" rows="10" formControlName="bodyHR"></textarea>
+                </div>
+              
+                  
 
                   <div class="btn-container">
+
+                    <button class="send-btn" type="submit" value="Dodaj">Dodaj</button>
                     <button class="close-btn" value="CLOSE" type="button" (click)="closeDialog()">Zatvori</button>
-                    <button class="send-btn" type="submit" value="Send">Dodaj</button>
-                  </div> 
+                </div> 
               </form>
            
           </div>

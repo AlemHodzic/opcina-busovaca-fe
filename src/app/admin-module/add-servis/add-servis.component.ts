@@ -18,7 +18,9 @@ export class AddServisComponent implements OnInit {
   ngOnInit(): void {
     this.formdata = new FormGroup({
       title: new FormControl(""),
-      body:  new FormControl("")
+      body:  new FormControl(""),
+      titleHR: new FormControl(""),
+      bodyHR:  new FormControl("")
    });
   }
   closeDialog(){

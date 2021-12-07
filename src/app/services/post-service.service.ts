@@ -8,12 +8,15 @@ export class PostServiceService {
   
   constructor(private http: HttpClient) { }
   url = 'https://busovaca-api.herokuapp.com/posts'
-
+  //url = 'http://localhost:5000/posts'
   getPosts(){
     return this.http.get(this.url)
   }
   getHeaderPosts(){
     return this.http.get(`${this.url}/novosti`)
+  }
+  getPostsWithNoImgs(){
+    return this.http.get(`${this.url}/novostiBezSlika`)
   }
   getPaginatedPosts(page){
     //http://localhost:5000/posts/sveNovosti?page=-1&size=3
@@ -35,16 +38,18 @@ export class PostServiceService {
     )
   }
 
-  updatePost(id, object){
-    this.http.patch(`${this.url}/${id}`, object).subscribe(
+  updatePost(id, object, uid){
+    const headers = { 'UID': uid};
+    this.http.patch(`${this.url}/${id}`, object, {headers}).subscribe(
       res => {
         window.location.reload()
       }
     )
   }
 
-  deletePost(id){
-    this.http.delete(`${this.url}/${id}`).subscribe(
+  deletePost(id, uid){
+    const headers = { 'UID': uid};
+    this.http.delete(`${this.url}/${id}`, {headers}).subscribe(
       res => {
         window.location.reload()
       }

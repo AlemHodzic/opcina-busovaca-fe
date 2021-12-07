@@ -63,7 +63,11 @@ export class AdminPanelComponent implements OnInit {
   noResultServis: boolean = false;
   noResultGallery: boolean = false;
   noResultOglas: boolean = false;
+  uid: any;
   ngOnInit(): void {
+    this.auth.user.subscribe(res=>{
+      this.uid = res.uid;
+    })
     this.service.getPaginatedPosts(this.page).subscribe(
       res=> {
         this.filteredNews = res as [];
@@ -126,20 +130,12 @@ export class AdminPanelComponent implements OnInit {
     };
 }
 
-  onClickSubmit(data) {
-    data.selectedFile = this.uploadedImg; 
-    if(data.isHeader){
-      data.isHeader = 1;
-    }else{
-      data.isHeader = 0;
-    }
-    this.service.createPost(data)
- }
+
   
   deleteItem(id){
     const answer = window.confirm("Jeste li sigurni da zelite izbrisati ovu novost?");
     if(answer){
-      this.service.deletePost(id);
+      this.service.deletePost(id, this.uid);
       setTimeout(() => {
         location.reload();
       }, 500);

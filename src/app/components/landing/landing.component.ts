@@ -35,6 +35,7 @@ export class LandingComponent implements OnInit {
   news: any[] = [];
   currentLanguage: any;
   ngOnInit(): void {
+    console.log('...')
     this.currentLanguage = localStorage.getItem('language');
     this.service.getPostsWithNoImgs().subscribe(
       res=>{

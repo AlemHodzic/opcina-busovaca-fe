@@ -39,7 +39,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentLanguage = localStorage.getItem('language');
-    console.log("oninit", this.currentLanguage)
     if(this.currentLanguage == "bs"){
       this.countryForm = this.fb.group({
         countryControl: ['bs']
@@ -72,13 +71,9 @@ export class NavbarComponent implements OnInit {
     console.log(this.translate.currentLang)
   }*/
   selectLanguage(event: any){
-    console.log(event)
     this.translate.use(event)
     localStorage.clear();
     localStorage.setItem('language', event)
-    if(this.router.url.includes('')){
-      window.location.reload()
-    }
-
+    window.location.reload()
   }
 }

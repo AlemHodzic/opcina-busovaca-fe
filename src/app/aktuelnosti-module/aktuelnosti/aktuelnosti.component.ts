@@ -22,8 +22,9 @@ export class AktuelnostiComponent implements OnInit {
   filteredNews: any[] = [];
   noResult: boolean = false;
   number: number = 1;
+  currentLanguage: any;
   ngOnInit(): void {
-    
+    this.currentLanguage = localStorage.getItem('language');
     this._Activatedroute.paramMap.subscribe(params => { 
       this.number = +params.get('number'); 
   });
@@ -34,11 +35,23 @@ export class AktuelnostiComponent implements OnInit {
         if(this.filteredNews.length == 0){
           this.number = 1;
           this.router.navigate(['/aktuelnosti/page', this.number]).then(()=>{
-            window.location.reload()
-            
+            window.location.reload() 
           }
           )
         }
+        if(this.currentLanguage == 'hr'){
+          for(let i=0;i<this.filteredNews.length; i++){
+            this.filteredNews[i].title =  this.filteredNews[i].titleHR
+            this.filteredNews[i].subTitle =  this.filteredNews[i].subTitleHR
+          }
+        }
+        for(let i=0; i<this.filteredNews.length; i++){
+          if(this.filteredNews[i].title.length > 70){
+            this.filteredNews[i].title = this.filteredNews[i].title.slice(0, 70) + '...';
+          }
+         
+        }
+   
       }
     )
   }
@@ -96,6 +109,12 @@ export class AktuelnostiComponent implements OnInit {
       this.service.searchByName(this.searchForm.value.searchBox).subscribe(
         res=> {
           this.filteredNews = res as [];
+          for(let i=0; i<this.filteredNews.length; i++){
+            if(this.filteredNews[i].title.length > 70){
+              this.filteredNews[i].title = this.filteredNews[i].title.slice(0, 70) + '...';
+            }
+           
+          }
           if(this.filteredNews.length == 0){
             this.noResult = true;
           }else{

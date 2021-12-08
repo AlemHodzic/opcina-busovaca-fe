@@ -1,5 +1,5 @@
 .modal-container {
-	width: 60vw;
+	width: auto;
 	height: auto;
 	display: flex;
 	justify-content: center;
@@ -9,6 +9,11 @@
 .modal-container h1 {
 	font-size: 4rem;
 }
+.single-row{
+	width: 100%;
+	display: flex;
+}
+
 
 .form-container {
 	margin-top: 20px;
@@ -50,7 +55,12 @@
 td {
 	padding-right: 8px;
 }
-
+.translate-titles{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .btn-container {
 	display: flex;
 	width: 100%;

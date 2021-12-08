@@ -13,10 +13,24 @@ import { PostServiceService } from 'src/app/services/post-service.service';
 export class SideNewsComponent implements OnInit {
   constructor(private service: PostServiceService, private router: Router, public loaderService: LoaderService) { }
   news: any[] = [];
+  currentLanguage: any;
   ngOnInit(): void {
+    this.currentLanguage = localStorage.getItem('language');
     this.service.getPostsWithNoImgs().subscribe(
       res=>{
         this.news = res as []
+        if(this.currentLanguage == 'hr'){
+          for(let i=0;i<this.news.length; i++){
+            this.news[i].title =  this.news[i].titleHR
+            this.news[i].subTitle =  this.news[i].subTitleHR
+          }
+        }
+        for(let i=0; i<this.news.length; i++){
+          if(this.news[i].title.length > 50){
+            this.news[i].title = this.news[i].title.slice(0, 50) + '...';
+          }
+         
+        }
       }
     )
   }

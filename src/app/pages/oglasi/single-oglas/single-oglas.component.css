@@ -165,6 +165,7 @@ table {
 }
 
 .datoteke{
+    overflow: hidden;
     width: 95%;
     margin-top: 10px;
 }

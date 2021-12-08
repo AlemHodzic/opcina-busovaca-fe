@@ -13,6 +13,7 @@ export class EditDialogComponent implements OnInit {
   formdata: any;
   post: any;
   uid: any;
+  uploadedImgs: any[] = [];
   constructor(private authService: AngularFireAuth, public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: PostServiceService) { }
 
   ngOnInit(): void {
@@ -23,8 +24,12 @@ export class EditDialogComponent implements OnInit {
       title: new FormControl(""),
       subTitle: new FormControl(""),
       body:  new FormControl(""),
-      tags:  new FormControl(""),
-      selectedFile:  new FormControl("")
+      titleHR: new FormControl(""),
+      subTitleHR: new FormControl(""),
+      bodyHR:  new FormControl(""),
+      selectedFile:  new FormControl(""),
+      displayFile:  new FormControl(""),
+      isHeader: new FormControl("")
    });
 
     this.service.getPost(this.data.id).subscribe(
@@ -33,6 +38,9 @@ export class EditDialogComponent implements OnInit {
         this.formdata.get('title').setValue(this.post.title);
         this.formdata.get('subTitle').setValue(this.post.subTitle);
         this.formdata.get('body').setValue(this.post.body);
+        this.formdata.get('titleHR').setValue(this.post.titleHR);
+        this.formdata.get('subTitleHR').setValue(this.post.subTitleHR);
+        this.formdata.get('bodyHR').setValue(this.post.bodyHR);
         this.formdata.get('tags').setValue(this.post.tags);
       }
     )
@@ -49,10 +57,31 @@ export class EditDialogComponent implements OnInit {
         this.uploadedImg = reader.result;
     };
   }
+  handleUploads(event) {
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      
+      const file = event.target.files[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.uploadedImgs.push(reader.result)
+        /*let addedImg: imageObject = {name: file.name, file: reader.result as string}
+        this.uploadedImg.push(addedImg) */
+
+      };
+    }
+
+  }
 
 onClickSubmit(data) {
-  data.selectedFile = this.uploadedImg; 
-  console.log(data);
+  if(data.isHeader){
+    data.isHeader = 1;
+  }else{
+    data.isHeader = 0;
+  }
+  data.selectedFile = this.uploadedImg;
+  data.displayFile = this.uploadedImgs;
   this.service.updatePost(this.post._id, data, this.uid)
   //this.service.createPost(data)
 }

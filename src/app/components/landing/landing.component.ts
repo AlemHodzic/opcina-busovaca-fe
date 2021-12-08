@@ -44,7 +44,12 @@ export class LandingComponent implements OnInit {
             this.news[i].title =  this.news[i].titleHR
             this.news[i].subTitle =  this.news[i].subTitleHR
           }
-    
+        }
+        for(let i=0; i<this.news.length; i++){
+          if(this.news[i].title.length > 50){
+            this.news[i].title = this.news[i].title.slice(0, 50) + '...';
+          }
+         
         }
       }
     )
@@ -57,6 +62,18 @@ export class LandingComponent implements OnInit {
     this.service.getHeaderPosts().subscribe(
       res=> {
         this.headerPosts = res as [];
+        if(this.currentLanguage == 'hr'){
+          for(let i=0;i<this.headerPosts.length; i++){
+            this.headerPosts[i].title =  this.headerPosts[i].titleHR
+            this.headerPosts[i].subTitle =  this.headerPosts[i].subTitleHR
+          }
+        }
+        for(let i=0; i<this.headerPosts.length; i++){
+          if(this.headerPosts[i].title.length > 80){
+            this.headerPosts[i].title = this.headerPosts[i].title.slice(0, 80) + '...';
+          }
+         
+        }
       }
     )
 

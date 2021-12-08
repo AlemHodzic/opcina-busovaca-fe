@@ -15,7 +15,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 600px;
+	height: auto;
 	flex-direction: column;
 }
 
@@ -26,6 +26,12 @@
 	align-items: center;
 	margin-bottom: 40px;
 	color: #292E43;
+}
+.translate-titles{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .top-form p {

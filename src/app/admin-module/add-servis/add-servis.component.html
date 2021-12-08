@@ -8,18 +8,21 @@
     
           <div class="contact-description">
               <form class="contact-form" [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
-                <div class="single-row">
+                <h5>BS</h5>
                     <input
                     type="text"  placeholder="Naslov BS" name="title" tabindex="1" formControlName="title" 
                     />
+                    <textarea placeholder="Tekst BS" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
+                    <br><br>
+                    <h5>HR</h5>
                     <input
                     type="text"  placeholder="Naslov HR" name="title" tabindex="1" formControlName="titleHR" 
                     />
-                </div>
-                <div class="single-row">
-                    <textarea placeholder="Tekst BS" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
+        
+               
+                  
                     <textarea placeholder="Tekst HR" name="Message" tabindex="5" rows="10" formControlName="bodyHR"></textarea>
-                </div>
+  
               
                   
 

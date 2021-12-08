@@ -20,7 +20,9 @@ export class NabavkeComponent implements OnInit {
   page: number = 1;
   noResult: boolean = false;
   number: number = 1;
+  currentLanguage: any;
   ngOnInit(): void {
+    this.currentLanguage = localStorage.getItem('language');
     this._Activatedroute.paramMap.subscribe(params => { 
       this.number = +params.get('number'); 
   });
@@ -28,7 +30,7 @@ export class NabavkeComponent implements OnInit {
       res=> {
         window.scrollTo(0, 0);
         this.oglasi = res as [];
-        if(this.oglasi.length == 0){
+        if(this.oglasi.length == 0 && this.number != 1){
           this.number = 1;
           this.router.navigate(['/o-opcini/javne-nabavke/page', this.number]).then(()=>{
             window.location.reload()
@@ -36,6 +38,13 @@ export class NabavkeComponent implements OnInit {
           }
           )
 
+        }
+        if(this.currentLanguage == 'hr'){
+          for(let i=0;i<this.oglasi.length; i++){
+            this.oglasi[i].title =  this.oglasi[i].titleHR
+            this.oglasi[i].subTitle =  this.oglasi[i].subTitleHR
+          }
+    
         }
         for(let i=0; i<this.oglasi.length; i++){
           if(this.oglasi[i].title.length > 30){

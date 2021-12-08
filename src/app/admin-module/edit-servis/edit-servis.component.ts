@@ -19,13 +19,17 @@ export class EditServisComponent implements OnInit {
   ngOnInit(): void {
     this.formdata = new FormGroup({
       title: new FormControl(""),
-      body:  new FormControl("")
+      body:  new FormControl(""),
+      titleHR: new FormControl(""),
+      bodyHR:  new FormControl("")
    });
    this.service.getServis(this.data.id).subscribe(
     res=>{
       this.post = res;
       this.formdata.get('title').setValue(this.post.title);
       this.formdata.get('body').setValue(this.post.body);
+      this.formdata.get('titleHR').setValue(this.post.titleHR);
+      this.formdata.get('bodyHR').setValue(this.post.bodyHR);
     }
   )
   }

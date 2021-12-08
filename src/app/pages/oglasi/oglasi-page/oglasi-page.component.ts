@@ -46,7 +46,6 @@ export class OglasiPageComponent implements OnInit {
             
           }
           )
-
         }
         for(let i=0; i<this.oglasi.length; i++){
           if(this.oglasi[i].title.length > 30){
@@ -116,6 +115,12 @@ export class OglasiPageComponent implements OnInit {
               this.oglasi[i].subTitle =  this.oglasi[i].subTitleHR
             }
       
+          }
+          for(let i=0; i<this.oglasi.length; i++){
+            if(this.oglasi[i].title.length > 30){
+              this.oglasi[i].title = this.oglasi[i].title.slice(0, 30) + '...';
+            }
+           
           }
           if(this.oglasi.length == 0){
             this.noResult = true;

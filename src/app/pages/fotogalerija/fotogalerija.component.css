@@ -222,11 +222,11 @@ ul li:last-child {
 .content-container img{
     max-width: 95%;
 }
-
 .other-articles-container{
-    width: 20%;
-    height: 100vh;
-    padding: 20px;
+  width: 20%;
+  min-height: 100vh;
+  height: auto;
+  padding: 20px;
 }
 .other-articles-container h2{
     margin-bottom: 15px;

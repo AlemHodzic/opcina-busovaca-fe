@@ -65,7 +65,8 @@
 
 .other-articles-container{
     width: 20%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     padding: 20px;
 }
 .other-articles-container h2{

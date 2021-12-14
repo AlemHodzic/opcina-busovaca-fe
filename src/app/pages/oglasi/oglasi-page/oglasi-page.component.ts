@@ -23,6 +23,7 @@ export class OglasiPageComponent implements OnInit {
   number: number = 1;
   currentLanguage: any;
   ngOnInit(): void {
+    console.log("...")
     this.currentLanguage = localStorage.getItem('language');
     this._Activatedroute.paramMap.subscribe(params => { 
       this.number = +params.get('number'); 

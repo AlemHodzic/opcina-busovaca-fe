@@ -31,7 +31,8 @@ export class AddNovostComponent implements OnInit {
       bodyHR:  new FormControl(""),
       selectedFile:  new FormControl(""),
       displayFile:  new FormControl(""),
-      isHeader: new FormControl("")
+      isHeader: new FormControl(""),
+      link: new FormControl("")
    });
   }
   closeDialog(){

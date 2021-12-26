@@ -42,9 +42,12 @@
                   <input type="checkbox" value="" placeholder="" formControlName="isHeader" name="isheader"/>
 
                   <label for="isheader"> Prikaži na naslovnoj</label>
-                  <p>Napomena: odabirom znači da će ovaj artikal biti prikazan na naslovnoj stranici i potrebno je da je slika visokog kvaliteta, dimenzija približnim 1920x400px </p>
+                  <p style="margin-bottom: 20px;">Napomena: odabirom znači da će ovaj artikal biti prikazan na naslovnoj stranici i potrebno je da je slika visokog kvaliteta, dimenzija približnim 1620x600px </p>
 
-                
+                  <label for="link" style="margin-top: 20px;">ID linka za YT video (opcionalno)</label>
+                  <input
+                  type="text" placeholder="https://www.youtube.com/watch?v=fmkpwvqoqYo --> ID bi bio fmkpwvqoqYo" name="link" tabindex="3" formControlName="link" 
+                  />
                   <div class="btn-container">
                     <button class="send-btn" type="submit" value="Send">Dodaj</button> 
                     <button class="close-btn" value="CLOSE" type="button" (click)="closeDialog()">Zatvori</button>

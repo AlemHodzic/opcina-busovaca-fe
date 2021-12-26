@@ -37,7 +37,7 @@
             <a title="image" class="card" *ngFor="let photo of photos; let i = index">
                 <div class="card-wrapper">
                  
-                  <img (click)="showGallery(i)" src="{{photo.selectedFile}}" alt=""/>
+                  <img (click)="showGallery(i)" src="{{photo.selectedFile}}" alt="" loading=lazy/>
                   
                 </div>
               </a>

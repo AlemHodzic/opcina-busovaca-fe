@@ -42,6 +42,7 @@ import { DokumentaracComponent } from './pages/dokumentarac/dokumentarac.compone
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { SafePipe } from './safe.pipe';
 
 
 
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient){
     SinglePostComponent,
     DokumentaracComponent,
     ContactFormComponent,
+    SafePipe,
 
 
   ],

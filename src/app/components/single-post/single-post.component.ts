@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
+
 @Component({
   selector: 'app-single-post',
   templateUrl: './single-post.component.html',
@@ -16,6 +17,8 @@ export class SinglePostComponent implements OnInit {
   object: any;
   dateCreated: any;
   currentLanguage: any;
+  youtubeLink: string;
+  linkExists: boolean = false;
   imgs: any[] = [];
   ngOnInit(): void {
     this.currentLanguage = localStorage.getItem('language');
@@ -26,6 +29,10 @@ export class SinglePostComponent implements OnInit {
   this.service.getPost(this.id).subscribe(
     res => {
       this.object = res;
+      if(this.object.link){
+        this.linkExists = true;
+        this.youtubeLink = 'https://www.youtube.com/embed/' + this.object.link
+      }
       if(this.currentLanguage == 'hr'){
         this.object.title = this.object.titleHR
         this.object.subTitle = this.object.subTitleHR

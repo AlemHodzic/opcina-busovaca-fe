@@ -29,7 +29,10 @@ export class EditDialogComponent implements OnInit {
       bodyHR:  new FormControl(""),
       selectedFile:  new FormControl(""),
       displayFile:  new FormControl(""),
-      isHeader: new FormControl("")
+      isHeader: new FormControl(""),
+      link: new FormControl(""),
+      attachedItems: new FormControl(""),
+      oglasLink: new FormControl("")
    });
 
     this.service.getPost(this.data.id).subscribe(
@@ -42,6 +45,8 @@ export class EditDialogComponent implements OnInit {
         this.formdata.get('subTitleHR').setValue(this.post.subTitleHR);
         this.formdata.get('bodyHR').setValue(this.post.bodyHR);
         this.formdata.get('tags').setValue(this.post.tags);
+        this.formdata.get('oglasLink').setValue(this.post.oglasLink);
+        this.formdata.get('link').setValue(this.post.link);
       }
     )
    

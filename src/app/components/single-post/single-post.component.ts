@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { PostServiceService } from 'src/app/services/post-service.service';
-
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-single-post',
@@ -29,6 +29,7 @@ export class SinglePostComponent implements OnInit {
   this.service.getPost(this.id).subscribe(
     res => {
       this.object = res;
+      console.log(this.object)
       if(this.object.link){
         this.linkExists = true;
         this.youtubeLink = 'https://www.youtube.com/embed/' + this.object.link
@@ -63,4 +64,20 @@ export class SinglePostComponent implements OnInit {
     }
     x[this.slideIndex-1].style.display = "block";  
   }
+  downloadBase64Data = (base64String, fileName) => {
+    let file = this.convertBase64ToFile(base64String, fileName);
+    saveAs(file, fileName);
+}
+   convertBase64ToFile = (base64String, fileName) => {
+    let arr = base64String.split(',');
+    let mime = arr[0].match(/:(.*?);/)[1];
+    let bstr = atob(arr[1]);
+    let n = bstr.length;
+    let uint8Array = new Uint8Array(n);
+    while (n--) {
+       uint8Array[n] = bstr.charCodeAt(n);
+    }
+    let file = new File([uint8Array], fileName, { type: mime });
+    return file;
+}
 }

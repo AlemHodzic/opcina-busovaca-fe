@@ -4,6 +4,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
+
+interface imageObject {
+  name: string,
+  file: string
+}
+
 @Component({
   selector: 'app-add-novost',
   templateUrl: './add-novost.component.html',
@@ -15,6 +21,7 @@ export class AddNovostComponent implements OnInit {
   formdata: any;
   post: any;
   uploadedImgs: any[] = [];
+  uploadedAttachments: any[] = []
   uid: any;
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: PostServiceService, private authService: AngularFireAuth) { }
 
@@ -32,7 +39,9 @@ export class AddNovostComponent implements OnInit {
       selectedFile:  new FormControl(""),
       displayFile:  new FormControl(""),
       isHeader: new FormControl(""),
-      link: new FormControl("")
+      link: new FormControl(""),
+      attachedItems: new FormControl(""),
+      oglasLink: new FormControl("")
    });
   }
   closeDialog(){
@@ -65,6 +74,18 @@ export class AddNovostComponent implements OnInit {
         this.uploadedImg = reader.result;
     };
   }
+  handleAttachment(event) {
+    for (let i = 0; i < event.target.files.length; i++) {
+      const file = event.target.files[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        let addedImg: imageObject = {name: file.name, file: reader.result as string}
+        this.uploadedAttachments.push(addedImg)
+      };
+    }
+  }
+
 
 onClickSubmit(data) { 
 
@@ -76,8 +97,10 @@ onClickSubmit(data) {
   }
   data.selectedFile = this.uploadedImg;
   data.displayFile = this.uploadedImgs;
+  data.attachedItems = this.uploadedAttachments
   data.uid = this.uid;
   this.service.createPost(data)
+
 }
 
 }

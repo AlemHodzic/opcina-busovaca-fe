@@ -48,6 +48,16 @@
                   <label for="isheader"> Prikaži na naslovnoj</label>
                   <p>Napomena: odabirom znači da će ovaj artikal biti prikazan na naslovnoj stranici i potrebno je da je slika visokog kvaliteta, dimenzija približnim 1920x400px </p>
 
+                  <label for="link" style="margin-top: 20px;">Link za povezivanje članka sa javnim pozivom (opcionalno)</label>
+                  <input
+                  type="text" placeholder="Npr: https://www.opcina-busovaca.com/javni-oglasi/oglas/61c5978cc0b23ea7e731e00e" name="oglasLink" tabindex="3" formControlName="oglasLink" 
+                  />
+
+                  <label for="link" style="margin-top: 20px;">ID linka za YT video (opcionalno)</label>
+                  <input
+                  type="text" placeholder="https://www.youtube.com/watch?v=fmkpwvqoqYo --> ID bi bio fmkpwvqoqYo" name="link" tabindex="3" formControlName="link" 
+                  />
+
                   <div class="btn-container">
                     <button class="send-btn" type="submit" value="Spasi">Spasi</button>
                     <button class="close-btn" value="Zatvori" type="button" (click)="closeDialog()">Zatvori</button>

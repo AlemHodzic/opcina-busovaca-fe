@@ -31,11 +31,11 @@
 
     <div class="content-container">
         <div class="subTitle-container">
-            <h4>{{object.subTitle}}</h4>
+            <h4>{{object?.subTitle}}</h4>
         </div>
         <div class="w3-content w3-display-container">
             <div class="w3-display-container mySlides">
-                <img src="{{object.selectedFile}}">
+                <img src="{{object?.selectedFile}}">
                 <div class="w3-display-topright w3-small w3-container w3-padding-16 w3-black">
                     {{slideIndex}}/{{imgs.length+1}}
                 </div>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="inner-content-text">
-            <h1>{{object.title}}</h1>
+            <h1>{{object?.title}}</h1>
             <p class="dateAdded">{{dateCreated}}</p>
             <ng-container *ngIf="linkExists">
                 <div class="iframe-container">
@@ -72,7 +72,19 @@
 
 
             <div style="white-space: pre-line">
-                <p class="content">{{object.body}}</p>
+                <p class="content">{{object?.body}}</p>
+            </div>
+            <div class="oglas-link" *ngIf="object?.oglasLink" style="margin-top: 18px;">
+                <a href="{{object?.oglasLink}}">Pročitaj više</a>
+            </div>
+
+            <div class="datoteke" *ngIf="object?.attachedItems">
+                <hr style="width: 95%; margin-bottom: 10px;">
+                <h4 style="margin-bottom: 10px;">Priložene datoteke: </h4>
+                <ng-container *ngFor="let link of object?.attachedItems">
+                    <a class="dl" (click)="downloadBase64Data(link.file, link.name)">{{link?.name}} <i class="fa fa-download"></i></a>
+                    <br><br>
+                </ng-container>
             </div>
         </div>
 

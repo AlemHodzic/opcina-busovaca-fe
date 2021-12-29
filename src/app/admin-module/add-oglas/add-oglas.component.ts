@@ -37,19 +37,15 @@ export class AddOglasComponent implements OnInit {
   }
 
   handleUpload(event) {
-
     for (let i = 0; i < event.target.files.length; i++) {
-      
       const file = event.target.files[i];
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
         let addedImg: imageObject = {name: file.name, file: reader.result as string}
         this.uploadedImg.push(addedImg)
-
       };
     }
-
   }
 
   onClickSubmit(data) {

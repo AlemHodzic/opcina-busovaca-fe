@@ -29,7 +29,6 @@ export class SingleOglasComponent implements OnInit {
 
   
       }
-      console.log(this.single.selectedFile)
     }
   )
 

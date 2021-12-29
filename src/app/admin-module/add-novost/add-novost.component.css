@@ -7,7 +7,7 @@
 }
 
 .modal-container h1 {
-	font-size: 4rem;
+	font-size: 3rem;
 }
 
 .single-row{
@@ -29,7 +29,6 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-bottom: 40px;
 	color: #292E43;
 }
 
@@ -81,7 +80,7 @@ input[type=text] {
 
 input[type=textarea] {
 	width: 100%;
-	padding: 16px 16px 120px 8px;
+	padding: 10px 10px 120px 8px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid rgb(0, 0, 0, 0.1);
@@ -90,7 +89,7 @@ input[type=textarea] {
 }
 textarea{
 	width: 100%;
-	padding: 16px 16px 10px 8px;
+	padding: 10px 10px 10px 8px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid rgb(0, 0, 0, 0.1);

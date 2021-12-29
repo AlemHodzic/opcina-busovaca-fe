@@ -1,9 +1,5 @@
 <div class="modal-container">
     <div class="form-container">
-        <div class="top-form">
-            <h1>Dodavanje novosti</h1>
-        </div>
-    
         <div class="contact-container">
     
           <div class="contact-description">
@@ -37,12 +33,22 @@
              <label for="displayFile">Ostale slike:   </label>
              <input type="file" multiple
              (change)="handleUploads($event)" placeholder="slika" name="displayFile" tabindex="2" formControlName="displayFile"
+             /><br>
+             <label for="selectedFile">Datoteke (opcionalno):  </label>
+             <input type="file" multiple
+             (change)="handleAttachment($event)" placeholder="slika" name="attachedItems" tabindex="2" formControlName="attachedItems"
              /><br><br>
 
                   <input type="checkbox" value="" placeholder="" formControlName="isHeader" name="isheader"/>
 
                   <label for="isheader"> Prikaži na naslovnoj</label>
                   <p style="margin-bottom: 20px;">Napomena: odabirom znači da će ovaj artikal biti prikazan na naslovnoj stranici i potrebno je da je slika visokog kvaliteta, dimenzija približnim 1620x600px </p>
+
+
+                  <label for="link" style="margin-top: 20px;">Link za povezivanje članka sa javnim pozivom (opcionalno)</label>
+                  <input
+                  type="text" placeholder="Npr: https://www.opcina-busovaca.com/javni-oglasi/oglas/61c5978cc0b23ea7e731e00e" name="oglasLink" tabindex="3" formControlName="oglasLink" 
+                  />
 
                   <label for="link" style="margin-top: 20px;">ID linka za YT video (opcionalno)</label>
                   <input

@@ -34,6 +34,11 @@
 .content-container p{
     font-size: 16.5px;
 }
+.dl{
+    color: rgb(84, 133, 207);
+    cursor:pointer;
+    
+}
 
 .main-container{
     width: 100%;
@@ -140,6 +145,14 @@
 
 
 /*MAIN CONTENT, EVEERYTHING ABOVE REUSABLE*/
+
+
+
+.datoteke{
+    overflow: hidden;
+    width: 95%;
+    margin-top: 10px;
+}
 
 .iframe-container{
     position: relative;

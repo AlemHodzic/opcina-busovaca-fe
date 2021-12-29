@@ -1,3 +1,10 @@
+
+.translate-titles{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .modal-container {
 	width: auto;
 	height: auto;
@@ -7,20 +14,20 @@
 }
 
 .modal-container h1 {
-	font-size: 4rem;
+	font-size: 2rem;
 }
+
 .single-row{
 	width: 100%;
 	display: flex;
 }
-
 
 .form-container {
 	margin-top: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 600px;
+	height: auto;
 	flex-direction: column;
 }
 
@@ -29,7 +36,6 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-bottom: 40px;
 	color: #292E43;
 }
 
@@ -55,12 +61,7 @@
 td {
 	padding-right: 8px;
 }
-.translate-titles{
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
+
 .btn-container {
 	display: flex;
 	width: 100%;
@@ -86,7 +87,7 @@ input[type=text] {
 
 input[type=textarea] {
 	width: 100%;
-	padding: 16px 16px 120px 8px;
+	padding: 10px 10px 120px 8px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid rgb(0, 0, 0, 0.1);
@@ -95,7 +96,7 @@ input[type=textarea] {
 }
 textarea{
 	width: 100%;
-	padding: 16px 16px 10px 8px;
+	padding: 10px 10px 10px 8px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid rgb(0, 0, 0, 0.1);
@@ -175,7 +176,7 @@ button {
 }
 @media only screen and (max-width: 1500px) {
 	.modal-container h1 {
-		font-size: 3rem;
+		font-size: 2rem;
 	}
 }
 
@@ -225,7 +226,7 @@ button {
 	}
 
 	.modal-container h1 {
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 
 	.top-form p {

@@ -75,10 +75,10 @@
                 <p class="content">{{object?.body}}</p>
             </div>
             <div class="oglas-link" *ngIf="object?.oglasLink" style="margin-top: 18px;">
-                <a href="{{object?.oglasLink}}">Pročitaj više</a>
+                <a href="{{object?.oglasLink}}">Pročitaj više...</a>
             </div>
 
-            <div class="datoteke" *ngIf="object?.attachedItems">
+            <div class="datoteke" *ngIf="object?.attachedItems.length > 0">
                 <hr style="width: 95%; margin-bottom: 10px;">
                 <h4 style="margin-bottom: 10px;">Priložene datoteke: </h4>
                 <ng-container *ngFor="let link of object?.attachedItems">

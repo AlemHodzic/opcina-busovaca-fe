@@ -1,72 +1,64 @@
 <div class="modal-container">
     <div class="form-container">
-        <div class="top-form">
-            <h1>Uredjivanje novosti</h1>
-        </div>
-    
         <div class="contact-container">
-    
-          <div class="contact-description">
-              <form class="contact-form" [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
-                  <div class="translate-titles">
-                      <h5>BS</h5>
-                      <h5>HR</h5>
-                  </div>
-                <div class="single-row">
-                    <input
-                    type="text"  placeholder="Naslov - BS" name="title" tabindex="1" formControlName="title" 
-                    />
-                    <input
-                    type="text"  placeholder="Naslov - HR" name="title" tabindex="1" formControlName="titleHR" 
-                    />
-                </div>  
-             <div class="single-row">
-                      <input
-                  type="text" placeholder="Podnaslov - BS" name="subTitle" tabindex="3" formControlName="subTitle" 
-                  />
-                  <input
-                  type="text" placeholder="Podnaslov - HR" name="subTitle" tabindex="3" formControlName="subTitleHR" 
-                  />
-             </div>
-             
-             <div class="single-row">
-                     <textarea placeholder="Sadržaj - BS" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
-                  <textarea placeholder="Sadržaj - HR" name="Message" tabindex="5" rows="10" formControlName="bodyHR"></textarea>
-             </div>
-             <label for="selectedFile">Glavna slika za prikaz:  </label>
-             <input type="file"
-             (change)="handleUpload($event)" placeholder="slika" name="selectedFile" tabindex="2" formControlName="selectedFile"
-             /><br>
 
-             <label for="displayFile">Ostale slike:   </label>
-             <input type="file" multiple
-             (change)="handleUploads($event)" placeholder="slika" name="displayFile" tabindex="2" formControlName="displayFile"
-             /><br><br>
+            <div class="contact-description">
+                <form class="contact-form" [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+                    <div class="translate-titles">
+                        <h5>BS</h5>
+                        <h5>HR</h5>
+                    </div>
+                    <div class="single-row">
+                        <input type="text" placeholder="Naslov - BS" name="title" tabindex="1"
+                            formControlName="title" />
+                        <input type="text" placeholder="Naslov - HR" name="title" tabindex="1"
+                            formControlName="titleHR" />
+                    </div>
+                    <div class="single-row">
+                        <input type="text" placeholder="Podnaslov - BS" name="subTitle" tabindex="3"
+                            formControlName="subTitle" />
+                        <input type="text" placeholder="Podnaslov - HR" name="subTitle" tabindex="3"
+                            formControlName="subTitleHR" />
+                    </div>
 
-                  <input type="checkbox" value="" placeholder="" formControlName="isHeader" name="isheader"/>
+                    <div class="single-row">
+                        <textarea placeholder="Sadržaj - BS" name="Message" tabindex="5" rows="10"
+                            formControlName="body"></textarea>
+                        <textarea placeholder="Sadržaj - HR" name="Message" tabindex="5" rows="10"
+                            formControlName="bodyHR"></textarea>
+                    </div>
+                    <label for="selectedFile">Glavna slika za prikaz: </label>
+                    <input type="file" (change)="handleUpload($event)" placeholder="slika" name="selectedFile"
+                        tabindex="2" formControlName="selectedFile" /><br>
 
-                  <label for="isheader"> Prikaži na naslovnoj</label>
-                  <p>Napomena: odabirom znači da će ovaj artikal biti prikazan na naslovnoj stranici i potrebno je da je slika visokog kvaliteta, dimenzija približnim 1920x400px </p>
+                    <label for="displayFile">Ostale slike: </label>
+                    <input type="file" multiple (change)="handleUploads($event)" placeholder="slika" name="displayFile"
+                        tabindex="2" formControlName="displayFile" /><br><br>
 
-                  <label for="link" style="margin-top: 20px;">Link za povezivanje članka sa javnim pozivom (opcionalno)</label>
-                  <input
-                  type="text" placeholder="Npr: https://www.opcina-busovaca.com/javni-oglasi/oglas/61c5978cc0b23ea7e731e00e" name="oglasLink" tabindex="3" formControlName="oglasLink" 
-                  />
+                    <input type="checkbox" value="" placeholder="" formControlName="isHeader" name="isheader" />
 
-                  <label for="link" style="margin-top: 20px;">ID linka za YT video (opcionalno)</label>
-                  <input
-                  type="text" placeholder="https://www.youtube.com/watch?v=fmkpwvqoqYo --> ID bi bio fmkpwvqoqYo" name="link" tabindex="3" formControlName="link" 
-                  />
+                    <label for="isheader"> Prikaži na naslovnoj</label>
+  
+                    <label for="link" style="margin-top: 20px;">Link za povezivanje članka sa javnim pozivom
+                        (opcionalno)</label>
+                    <input type="text"
+                        placeholder="Npr: https://www.opcina-busovaca.com/javni-oglasi/oglas/61c5978cc0b23ea7e731e00e"
+                        name="oglasLink" tabindex="3" formControlName="oglasLink" />
 
-                  <div class="btn-container">
-                    <button class="send-btn" type="submit" value="Spasi">Spasi</button>
-                    <button class="close-btn" value="Zatvori" type="button" (click)="closeDialog()">Zatvori</button>
-                
-                  </div> 
-              </form>
-           
-          </div>
-    
-      </div>
+                    <label for="link" style="margin-top: 20px;">ID linka za YT video (opcionalno)</label>
+                    <input type="text"
+                        placeholder="https://www.youtube.com/watch?v=fmkpwvqoqYo --> ID bi bio fmkpwvqoqYo" name="link"
+                        tabindex="3" formControlName="link" />
+
+                    <div class="btn-container">
+                        <button class="send-btn" type="submit" value="Spasi">Spasi</button>
+                        <button class="close-btn" value="Zatvori" type="button" (click)="closeDialog()">Zatvori</button>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
     </div>
 </div>

@@ -29,7 +29,6 @@ export class SinglePostComponent implements OnInit {
   this.service.getPost(this.id).subscribe(
     res => {
       this.object = res;
-      console.log(this.object)
       if(this.object.link){
         this.linkExists = true;
         this.youtubeLink = 'https://www.youtube.com/embed/' + this.object.link

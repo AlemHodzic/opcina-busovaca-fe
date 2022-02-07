@@ -29,7 +29,8 @@ export class AddOglasComponent implements OnInit {
       titleHR: new FormControl(""),
       bodyHR: new FormControl(""),
       selectedFile: new FormControl(""),
-      type: new FormControl("")
+      type: new FormControl(""),
+      createdAt: new FormControl("")
     });
   }
   closeDialog() {

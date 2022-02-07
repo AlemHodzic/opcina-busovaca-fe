@@ -20,9 +20,7 @@
                     <textarea placeholder="Tekst/sadržaj BH" name="Message" tabindex="5" rows="10" formControlName="body"></textarea>
                     <textarea placeholder="Tekst/sadržaj HR" name="Message" tabindex="5" rows="10" formControlName="bodyHR"></textarea>
                 </div>
-                  
-
-              
+                
                   
                   <input type="radio" id="poziv" formControlName="type" name="type" value="poziv">
                   <label for="poziv">Javni poziv</label><br><br>
@@ -30,6 +28,9 @@
                   <label for="nabavke">Javne nabavke</label><br>
     
                   <br><br>
+                  <input
+                  type="text"  placeholder="Maj 2020." name="title" tabindex="1" formControlName="createdAt" 
+                  />  <br><br>
                   <label>Dokumenti:</label><br><br>
                   <input type="file" multiple
                   (change)="handleUpload($event)" placeholder="slika" name="selectedFile" tabindex="2" formControlName="selectedFile"

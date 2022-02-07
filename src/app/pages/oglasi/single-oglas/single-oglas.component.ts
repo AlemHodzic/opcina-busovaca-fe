@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { OglasiService } from 'src/app/services/oglasi.service';
 import { saveAs } from 'file-saver';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-single-oglas',
@@ -10,7 +11,7 @@ import { saveAs } from 'file-saver';
   styleUrls: ['./single-oglas.component.css']
 })
 export class SingleOglasComponent implements OnInit {
-  constructor(private _Activatedroute:ActivatedRoute, private service: OglasiService, private router: Router, public loaderService: LoaderService) { }
+  constructor(private _Activatedroute:ActivatedRoute, private service: OglasiService, private router: Router, public loaderService: LoaderService, private meta: Meta, private titleService: Title) { }
   single: any;
   id: any;
   currentLanguage: any;
@@ -26,9 +27,8 @@ export class SingleOglasComponent implements OnInit {
           this.single.title =  this.single.titleHR
           this.single.subTitle =  this.single.subTitleHR
           this.single.body =  this.single.bodyHR
-
-  
       }
+      this.titleService.setTitle(this.single.title)
     }
   )
 

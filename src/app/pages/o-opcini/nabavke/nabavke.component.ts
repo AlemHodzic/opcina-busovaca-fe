@@ -10,10 +10,10 @@ import { OglasiService } from 'src/app/services/oglasi.service';
 })
 export class NabavkeComponent implements OnInit {
 
-  constructor(public service: OglasiService, private _Activatedroute:ActivatedRoute, private router: Router,  private formBuilder: FormBuilder, public loaderService: LoaderService) { }
+  constructor(public service: OglasiService, private _Activatedroute:ActivatedRoute, private router: Router,  private formBuilder: FormBuilder, public loaderService: LoaderService) {}
   searchForm = this.formBuilder.group({
     searchBox: ''
-  });
+  })
   oglasi: any[] = []
   warning: boolean = false;
   loaded: boolean = false;
@@ -47,8 +47,8 @@ export class NabavkeComponent implements OnInit {
     
         }
         for(let i=0; i<this.oglasi.length; i++){
-          if(this.oglasi[i].title.length > 30){
-            this.oglasi[i].title = this.oglasi[i].title.slice(0, 30) + '...';
+          if(this.oglasi[i].title.length > 50){
+            this.oglasi[i].title = this.oglasi[i].title.slice(0, 50) + '...';
           }
          
         }

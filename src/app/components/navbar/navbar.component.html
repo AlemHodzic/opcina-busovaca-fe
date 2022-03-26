@@ -5,28 +5,32 @@
 <div class="navbar-container" id="navbar">
     <div class="inner-container">
         <div class="navbar-headings-container">
-            <button class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+            <button class="menu"
+                onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+                aria-label="Main Menu">
                 <svg width="50" height="50" viewBox="0 0 100 100">
-                  <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-                  <path class="line line2" d="M 20,50 H 80" />
-                  <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                    <path class="line line1"
+                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3"
+                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
                 </svg>
-              </button>
-            
-           <div class="navbar-headings">
-            <a class="push" (click)="openNav()"><i class="fa fa-bars"></i> Izbornik</a>
-            <a href="/o-opcini/opcinski-nacelnik" class="disabledClass">Općinski načelnik</a>
-            <a  href="/vijecnici" class="disabledClass">Općinsko vijeće</a>
-            <a href="/sluzbe-uprave" class="disabledClass">Službe za upravu</a>
-            <a href="/o-opcini/mjesne-zajednice" class="disabledClass">Mjesne zajednice</a>
-            <a href="/o-opcini/javne-nabavke/page/1" class="disabledClass">Javne nabavke</a>
-            <select #langSelect (change)="selectLanguage(langSelect.value)">
-                <option *ngFor="let lang of translate.getLangs()" [value]="lang"
-                    [selected]="lang === translate.currentLang">
-                    {{lang}}</option>
-            </select>
-           </div>
-          
+            </button>
+
+            <div class="navbar-headings">
+                <a class="push" (click)="openNav()"><i class="fa fa-bars"></i> Izbornik</a>
+                <a href="/o-opcini/opcinski-nacelnik" class="disabledClass">Općinski načelnik</a>
+                <a href="/vijecnici" class="disabledClass">Općinsko vijeće</a>
+                <a href="/sluzbe-uprave" class="disabledClass">Službe za upravu</a>
+                <a href="/o-opcini/mjesne-zajednice" class="disabledClass">Mjesne zajednice</a>
+                <a href="/o-opcini/javne-nabavke/page/1" class="disabledClass">Javne nabavke</a>
+                <select #langSelect (change)="selectLanguage(langSelect.value)">
+                    <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                        [selected]="lang === translate.currentLang">
+                        {{lang}}</option>
+                </select>
+            </div>
+
         </div>
     </div>
 </div>
@@ -34,9 +38,12 @@
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
     <img src="assets/img/opcinabusovaca.png" alt="">
     <hr>
-    <a (click)="toggle[3] = !toggle[3]">O općini <i *ngIf="!toggle[3]" class="fa fa-angle-down"></i> <i *ngIf="toggle[3]" class="fa fa-angle-up"></i></a>
-    <div class="under_menu" [hidden]="!toggle[3]">    
-        <a href="/o-opcini/opcinski-nacelnik">Općinski načelnik</a> 
+    <a href="/aktuelnosti/page/1">{{ 'aktuelnosti_naslov' | translate }}</a>
+    <hr>
+    <a (click)="toggle[3] = !toggle[3]">O općini <i *ngIf="!toggle[3]" class="fa fa-angle-down"></i> <i
+            *ngIf="toggle[3]" class="fa fa-angle-up"></i></a>
+    <div class="under_menu" [hidden]="!toggle[3]">
+        <a href="/o-opcini/opcinski-nacelnik">Općinski načelnik</a>
         <a href="/o-opcini/o-nama">O nama</a>
         <a href="/o-opcini/historijat">{{ 'historijat_naslov' | translate }}</a>
         <a href="/o-opcini/geografija-i-demografija">{{ 'geo_demo_naslov' | translate }}</a>
@@ -56,18 +63,16 @@
     <hr>
     <a href="/sluzbe-uprave">Službe za upravu</a>
     <hr>
-    <a (click)="toggle[2] = !toggle[2]">Općinsko vijeće  <i *ngIf="!toggle[2]" class="fa fa-angle-down"></i> <i *ngIf="toggle[2]" class="fa fa-angle-up"></i></a>
-    <div class="under_menu" [hidden]="!toggle[2]">     
+    <a (click)="toggle[2] = !toggle[2]">Općinsko vijeće <i *ngIf="!toggle[2]" class="fa fa-angle-down"></i> <i
+            *ngIf="toggle[2]" class="fa fa-angle-up"></i></a>
+    <div class="under_menu" [hidden]="!toggle[2]">
         <a href="/vijecnici">Općinski vijećnici</a>
         <a href="/dokumenti-i-zakljucci">Dokumenti i zaključci Općinskog vijeća</a>
         <a href="/radna-tijela-povjerenstva">Radna tijela i povjerenstva/komisije Općinskog vijeća</a>
-   </div>
+    </div>
     <hr>
-    <a href="/aktuelnosti/page/1">{{ 'aktuelnosti_naslov' | translate }}</a>
-        <hr>
-        <a href="/dokumenti">Dokumenti</a>
-      
-        <hr>
+    <a href="/dokumenti">Dokumenti</a>
+    <hr>
     <a href='/obrasci'>Obrasci</a>
     <hr>
     <a href='/javni-oglasi/page/1'>Javni oglasi</a>
@@ -76,7 +81,4 @@
     <hr>
     <a (click)="openContact()">Kontakt</a>
     <hr>
-  </div>
-
-
-  
+</div>

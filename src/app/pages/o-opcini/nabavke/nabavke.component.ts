@@ -46,12 +46,12 @@ export class NabavkeComponent implements OnInit {
           }
     
         }
-        for(let i=0; i<this.oglasi.length; i++){
-          if(this.oglasi[i].title.length > 50){
-            this.oglasi[i].title = this.oglasi[i].title.slice(0, 50) + '...';
+        /*for(let i=0; i<this.oglasi.length; i++){
+          if(this.oglasi[i].title.length > 65){
+            this.oglasi[i].title = this.oglasi[i].title.slice(0, 65) + '...';
           }
          
-        }
+        } */
       }
     )
   }

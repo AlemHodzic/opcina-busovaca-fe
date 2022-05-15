@@ -36,6 +36,11 @@
                   (change)="handleUpload($event)" placeholder="slika" name="selectedFile" tabindex="2" formControlName="selectedFile"
                   />
                   <br><br>
+                  <label>Dokaz o objavi (slike):</label><br><br>
+                  <input type="file" multiple
+                  (change)="handleUploads($event)" placeholder="slika" name="displayFile" tabindex="2" formControlName="displayFile"
+                  />
+                  <br><br>
                   <div class="btn-container">
                     <button class="send-btn" type="submit" value="Send">Dodaj</button>             
                     <button class="close-btn" value="CLOSE" type="button" (click)="closeDialog()">Zatvori</button>

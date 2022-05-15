@@ -51,6 +51,14 @@
                 <br><br>
             </ng-container>
         </div>
+
+        <div class="datoteke" *ngIf="single.displayFile">
+            <hr style="width: 95%; margin-bottom: 10px;">
+            <h4 style="margin-bottom: 10px;">Dokaz o objavi: </h4>
+            <ng-container *ngFor="let link of single.displayFile">
+                <img src="{{link}}">
+            </ng-container>
+        </div>
      
           </div>
 

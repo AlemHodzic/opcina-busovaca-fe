@@ -20,6 +20,7 @@ export class AddOglasComponent implements OnInit {
   uploadedImg: any[] = [];
   formdata: any;
   post: any;
+  uploadedImgs: any[] = [];
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private service: OglasiService) { }
 
   ngOnInit(): void {
@@ -49,11 +50,23 @@ export class AddOglasComponent implements OnInit {
     }
   }
 
+  handleUploads(event) {
+    for (let i = 0; i < event.target.files.length; i++) {
+      const file = event.target.files[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.uploadedImgs.push(reader.result)
+        /*let addedImg: imageObject = {name: file.name, file: reader.result as string}
+        this.uploadedImg.push(addedImg) */
+      };
+    }
+  }
+
   onClickSubmit(data) {
-    console.log(this.uploadedImg)
     data.selectedFile = this.uploadedImg;
+    data.displayFile = this.uploadedImgs;
     this.service.createOglas(data);
-    //this.service.createPost(data)
   }
 
 }

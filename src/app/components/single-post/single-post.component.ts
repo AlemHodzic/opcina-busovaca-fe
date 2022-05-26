@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { PostServiceService } from 'src/app/services/post-service.service';
 import { saveAs } from 'file-saver';
+import { Meta, Title } from '@angular/platform-browser';  
 
 @Component({
   selector: 'app-single-post',
@@ -11,7 +12,7 @@ import { saveAs } from 'file-saver';
 })
 export class SinglePostComponent implements OnInit {
 
-  constructor(private _Activatedroute:ActivatedRoute, private service: PostServiceService, private router: Router, public loaderService: LoaderService) { }
+  constructor(private _Activatedroute:ActivatedRoute, private service: PostServiceService, private router: Router, public loaderService: LoaderService, private meta: Meta, private titleService: Title) { }
   id: any;
   slideIndex = 1;
   object: any;
@@ -29,6 +30,7 @@ export class SinglePostComponent implements OnInit {
   this.service.getPost(this.id).subscribe(
     res => {
       this.object = res;
+      this.titleService.setTitle(this.object.title)
       if(this.object.link){
         this.linkExists = true;
         this.youtubeLink = 'https://www.youtube.com/embed/' + this.object.link
@@ -37,6 +39,7 @@ export class SinglePostComponent implements OnInit {
         this.object.title = this.object.titleHR
         this.object.subTitle = this.object.subTitleHR
         this.object.body = this.object.bodyHR
+        this.titleService.setTitle(this.object.titleHR)
       }
       for(let i=0; i<this.object.displayFile.length; i++){
         this.imgs.push(this.object.displayFile[i])
@@ -44,8 +47,19 @@ export class SinglePostComponent implements OnInit {
       this.showDivs(this.slideIndex);
       this.dateCreated = this.object.createdAt;
       this.dateCreated = this.dateCreated.split('T')[0]
+      const description = this.object.body.slice(0, 120) + '...'
+      this.meta.addTags([
+        { property: 'og:title', content: this.object.title },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:description', content: description },
+        { property: 'og:image', content: this.object.selectedFile }   
+      ]); 
+
     }
   );
+
+
+
 
 
   }
